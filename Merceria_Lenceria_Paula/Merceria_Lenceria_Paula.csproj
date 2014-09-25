@@ -196,7 +196,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="dtlStock\dtlMerceria.csproj">
+      <Project>{a78a18d8-96c6-4788-a242-d59e4306d704}</Project>
+      <Name>dtlMerceria</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.IO;
-
+using dtlMerceria;
 
 namespace Merceria_Lenceria_Paula
 {
@@ -39,39 +39,33 @@ namespace Merceria_Lenceria_Paula
 
         public void CargarDatos()
         {
-            // Carga los datos en la grid
+            Cursor.Current = Cursors.WaitCursor;
+            
+            // Tomado desde la clase dtlMerceria
+            dtlStock obReg = new dtlStock();
+            gvDatos.DataSource = obReg.DatosStock_basico();
+
+            Cursor.Current = Cursors.Default;
+            
+        }
+
+        public void UpdateDatos()
+        {
             Cursor.Current = Cursors.WaitCursor;
 
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader reader;
-
-            cmd.CommandText = "SELECT * FROM stock";
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = sqlConnection1;
-            
-            sqlConnection1.Open();
-
-            reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
-            {
-                 while (reader.Read())
-                {
-                    //Codigo(0),Fabricante(1),Descripcion(2),Precio(3),Cantidad(8)
-                    dataGridView1.Rows.Add(reader.GetSqlValue(0),
-                                           reader.GetSqlValue(1),
-                                           reader.GetSqlValue(2),
-                                           reader.GetSqlValue(3),
-                                           reader.GetSqlValue(7)
-                                           );
-                }
-            }
-            
-            Cursor.Current = Cursors.Default ;
-            sqlConnection1.Close();
+            // Tomado desde la clase dtlMerceria
+            dtlStock obReg = new dtlStock();
+            obReg.UpdateDatos(txtCodigo.Text,
+                              txtFabricante.Text,
+                              txtDescripcion.Text,
+                              txtPrecio.Text,
+                              CalculateMD5Hash(txtPrecio.Text),
+                              txtCantidad.Text);
+                                                    
+            Cursor.Current = Cursors.Default;
 
         }
-        
+
         public void InsertDatos()
         {
             // Agregad los datos nuevos
@@ -121,6 +115,8 @@ namespace Merceria_Lenceria_Paula
                 }
             }
         }
+        
+        /*
         public void UpdateDatos()
         {
             // Actualizar datos nuevos
@@ -156,6 +152,8 @@ namespace Merceria_Lenceria_Paula
                 MessageBox.Show("{0} Exception caught." + e);
             }
         }
+         */
+
         public void BorrarDatos()
         {
             // Borra los registros
@@ -188,11 +186,11 @@ namespace Merceria_Lenceria_Paula
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             // Al hacer click en un valor los muestra
-            txtCodigo.Text = Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value);
-            txtFabricante.Text = Convert.ToString(dataGridView1.CurrentRow.Cells[1].Value);
-            txtDescripcion.Text = Convert.ToString(dataGridView1.CurrentRow.Cells[2].Value);
-            txtPrecio.Text = Convert.ToString(dataGridView1.CurrentRow.Cells[3].Value);
-            txtCantidad.Text = Convert.ToString(dataGridView1.CurrentRow.Cells[4].Value);
+            txtCodigo.Text = Convert.ToString(gvDatos.CurrentRow.Cells[0].Value);
+            txtFabricante.Text = Convert.ToString(gvDatos.CurrentRow.Cells[1].Value);
+            txtDescripcion.Text = Convert.ToString(gvDatos.CurrentRow.Cells[2].Value);
+            txtPrecio.Text = Convert.ToString(gvDatos.CurrentRow.Cells[3].Value);
+            txtCantidad.Text = Convert.ToString(gvDatos.CurrentRow.Cells[4].Value);
             btnBorrar.Enabled = true;
         }
 
@@ -200,7 +198,7 @@ namespace Merceria_Lenceria_Paula
         private void btnAplicar_Click(object sender, EventArgs e)
         {
             txtCodigo.Enabled = true;
-            dataGridView1.Enabled = false;
+            gvDatos.Enabled = false;
             Limpiar_Controles();
         }
 
@@ -213,54 +211,10 @@ namespace Merceria_Lenceria_Paula
             }
         }
 
-        private void txtCodigo_MouseHover(object sender, EventArgs e)
-        {
-            /*
-            TextBox TB = (TextBox)sender;
-            int VisibleTime = 1000;  //in milliseconds
-
-            ToolTip tt = new ToolTip();
-            tt.Show("Valores admitibles solo NÚMEROS", TB, 0, 0, VisibleTime);
-            */
-        }
-
-        private void txtFabricante_MouseMove(object sender, MouseEventArgs e)
-        {
-            /*
-            TextBox TB = (TextBox)sender;
-            int VisibleTime = 1000;  //in milliseconds
-
-            ToolTip tt = new ToolTip();
-            tt.Show("Valores admitibles solo LETRAS", TB, 0, 0, VisibleTime);
-             */
-        }
-
-        private void txtFabricante_KeyPress(object sender, KeyPressEventArgs e)
-        {
-         /*   if (!Char.IsLetter(e.KeyChar) )
-            {
-                txtFabricante.Focus();
-                e.Handled = true;
-            }
-         */
-        }
-
-        private void txtDescripcion_MouseHover(object sender, EventArgs e)
-        {
-            /* 
-            TextBox TB = (TextBox)sender;
-            int VisibleTime = 1000;  //in milliseconds
-
-            ToolTip tt = new ToolTip();
-            tt.Show("Valores sin restricciones", TB, 0, 0, VisibleTime);
-        
-            */
-        }
-
         private void Limpiar_Controles()
         {
-            dataGridView1.ClearSelection();
-            dataGridView1.CurrentCell = null;
+            gvDatos.ClearSelection();
+            gvDatos.CurrentCell = null;
             txtCodigo.Text = "";
             txtFabricante.Text = "";
             txtDescripcion.Text = "";
@@ -308,7 +262,7 @@ namespace Merceria_Lenceria_Paula
         {
             BorrarDatos();
             Limpiar_Controles();
-            dataGridView1.Rows.Clear();
+            gvDatos.Rows.Clear();
             CargarDatos();
         }
 
@@ -337,9 +291,12 @@ namespace Merceria_Lenceria_Paula
             if (!txtCodigo.Enabled)
             {
                 // Si boton NUEVO no está habilitado es un UPDATE
+
                 UpdateDatos();
+
+
+
                 Limpiar_Controles();
-                dataGridView1.Rows.Clear();
                 CargarDatos();
             }
             else
@@ -347,13 +304,13 @@ namespace Merceria_Lenceria_Paula
                 // Sino es un INSERT
                 InsertDatos();
                 Limpiar_Controles();
-                dataGridView1.Rows.Clear();
+                gvDatos.Rows.Clear();
                 CargarDatos();
             }
             // Pongo los controles en flase para empezar de nuevo
             btnGuardar.Enabled = false;
             txtCodigo.Enabled = false;
-            dataGridView1.Enabled = true;
+            gvDatos.Enabled = true;
         }
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)

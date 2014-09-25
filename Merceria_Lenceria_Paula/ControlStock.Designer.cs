@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlStock));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtPrecio = new System.Windows.Forms.TextBox();
@@ -45,17 +44,12 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblCodigoBarra = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fabricante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Des = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvDatos = new System.Windows.Forms.DataGridView();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnReporte = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -173,9 +167,7 @@
             this.txtFabricante.Name = "txtFabricante";
             this.txtFabricante.Size = new System.Drawing.Size(304, 31);
             this.txtFabricante.TabIndex = 2;
-            this.txtFabricante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFabricante_KeyPress);
             this.txtFabricante.Leave += new System.EventHandler(this.txtFabricante_Leave);
-            this.txtFabricante.MouseMove += new System.Windows.Forms.MouseEventHandler(this.txtFabricante_MouseMove);
             // 
             // label2
             // 
@@ -204,7 +196,6 @@
             this.txtDescripcion.Size = new System.Drawing.Size(304, 31);
             this.txtDescripcion.TabIndex = 3;
             this.txtDescripcion.Leave += new System.EventHandler(this.txtDescripcion_Leave);
-            this.txtDescripcion.MouseHover += new System.EventHandler(this.txtDescripcion_MouseHover);
             // 
             // lblCodigoBarra
             // 
@@ -225,59 +216,20 @@
             this.txtCodigo.TabIndex = 1;
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
-            this.txtCodigo.MouseHover += new System.EventHandler(this.txtCodigo_MouseHover);
             // 
-            // dataGridView1
+            // gvDatos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Cod,
-            this.Fabricante,
-            this.Des,
-            this.Precio,
-            this.Cantidad});
-            this.dataGridView1.Location = new System.Drawing.Point(13, 287);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(759, 258);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
-            // 
-            // Cod
-            // 
-            this.Cod.HeaderText = "Codigo";
-            this.Cod.Name = "Cod";
-            this.Cod.ReadOnly = true;
-            // 
-            // Fabricante
-            // 
-            this.Fabricante.HeaderText = "Fabricante";
-            this.Fabricante.Name = "Fabricante";
-            this.Fabricante.ReadOnly = true;
-            // 
-            // Des
-            // 
-            this.Des.HeaderText = "Descripcion";
-            this.Des.Name = "Des";
-            this.Des.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            dataGridViewCellStyle1.NullValue = null;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
+            this.gvDatos.AllowUserToAddRows = false;
+            this.gvDatos.AllowUserToDeleteRows = false;
+            this.gvDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.gvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvDatos.Location = new System.Drawing.Point(13, 287);
+            this.gvDatos.Name = "gvDatos";
+            this.gvDatos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.gvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvDatos.Size = new System.Drawing.Size(759, 258);
+            this.gvDatos.TabIndex = 0;
+            this.gvDatos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
             // btnCerrar
             // 
@@ -309,7 +261,7 @@
             this.ClientSize = new System.Drawing.Size(784, 614);
             this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gvDatos);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("News706 BT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -321,7 +273,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDatos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -338,18 +290,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gvDatos;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fabricante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Des;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.Button btnReporte;
     }
 }

@@ -272,6 +272,7 @@ namespace Merceria_Lenceria_Paula
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+            // Cerrar ventana
         }
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
