@@ -275,8 +275,10 @@ namespace Merceria_Lenceria_Paula
 
         private void btnReporte_Click(object sender, EventArgs e)
         {
+            /*
             Reporte frm = new Reporte();
             frm.ShowDialog();
+             */
         }
 
     }

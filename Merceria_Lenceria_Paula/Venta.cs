@@ -14,6 +14,7 @@ using System.Drawing.Printing;
 using System.Security.Cryptography;
 using System.IO;
 
+using dtlMerceria;
 
 namespace Merceria_Lenceria_Paula
 {
@@ -187,6 +188,19 @@ namespace Merceria_Lenceria_Paula
 
         void ExistetmpVenta()
         {
+            Cursor.Current = Cursors.WaitCursor;
+
+            // Tomado desde la clase dtlMerceria
+            dtlVenta obReg = new dtlVenta();
+
+            if (obReg.Existe_Venta_Tmp(_Usuario) == false)
+            {
+                obReg.Creo_Venta_Tmp(_Usuario);
+            }
+
+            Cursor.Current = Cursors.Default;
+
+            /*
             // Ver si existe una venta previa, sino crea la tabla
             Cursor.Current = Cursors.WaitCursor;
 
@@ -225,6 +239,7 @@ namespace Merceria_Lenceria_Paula
 
             Cursor.Current = Cursors.Default;
             sqlConnection1.Close();
+             */
         }
 
         void AgregotmpVenta(string Id_cod, String Desc, string Fabri, string Cant, string Monto, string Stock_ac)

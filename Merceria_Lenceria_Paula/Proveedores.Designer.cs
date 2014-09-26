@@ -38,10 +38,8 @@
             this.Contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.web = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.merceriaLenceriaDBDataSet = new Merceria_Lenceria_Paula.MerceriaLenceriaDBDataSet();
             this.merceriaLenceriaDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.merceriaLenceriaDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.merceriaLenceriaDBDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,16 +104,6 @@
             this.web.HeaderText = "web";
             this.web.Name = "web";
             // 
-            // merceriaLenceriaDBDataSet
-            // 
-            this.merceriaLenceriaDBDataSet.DataSetName = "MerceriaLenceriaDBDataSet";
-            this.merceriaLenceriaDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // merceriaLenceriaDBDataSetBindingSource
-            // 
-            this.merceriaLenceriaDBDataSetBindingSource.DataSource = this.merceriaLenceriaDBDataSet;
-            this.merceriaLenceriaDBDataSetBindingSource.Position = 0;
-            // 
             // Proveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -127,7 +115,6 @@
             this.Name = "Proveedores";
             this.Text = "Proveedores";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.merceriaLenceriaDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.merceriaLenceriaDBDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -145,7 +132,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn web;
         private System.Windows.Forms.BindingSource merceriaLenceriaDBDataSetBindingSource;
-        private MerceriaLenceriaDBDataSet merceriaLenceriaDBDataSet;
 
     }
 }

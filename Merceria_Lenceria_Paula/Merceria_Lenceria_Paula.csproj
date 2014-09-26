@@ -92,31 +92,11 @@
     <Compile Include="Mantenimiento.Designer.cs">
       <DependentUpon>Mantenimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="MerceriaLenceriaDBDataSet.cs">
-      <DependentUpon>MerceriaLenceriaDBDataSet.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="MerceriaLenceriaDBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MerceriaLenceriaDBDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="MerceriaLenceriaDBDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MerceriaLenceriaDBDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Proveedores.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Proveedores.Designer.cs">
       <DependentUpon>Proveedores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reporte.Designer.cs">
-      <DependentUpon>Reporte.cs</DependentUpon>
     </Compile>
     <Compile Include="Venta.cs">
       <SubType>Form</SubType>
@@ -156,10 +136,6 @@
     <EmbeddedResource Include="Proveedores.resx">
       <DependentUpon>Proveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptStock.rdlc" />
-    <EmbeddedResource Include="Reporte.resx">
-      <DependentUpon>Reporte.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Venta.resx">
       <DependentUpon>Venta.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,28 +152,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="MerceriaLenceriaDBDataSet.xsc">
-      <DependentUpon>MerceriaLenceriaDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MerceriaLenceriaDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MerceriaLenceriaDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MerceriaLenceriaDBDataSet.xss">
-      <DependentUpon>MerceriaLenceriaDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MerceriaLenceriaDBDataSet1.xsc">
-      <DependentUpon>MerceriaLenceriaDBDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="MerceriaLenceriaDBDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MerceriaLenceriaDBDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MerceriaLenceriaDBDataSet1.xss">
-      <DependentUpon>MerceriaLenceriaDBDataSet1.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
