@@ -32,11 +32,6 @@ namespace Merceria_Lenceria_Paula
             return sb.ToString();
         }
 
-        // Conexion a la BD
-        SqlConnection sqlConnection1 = new SqlConnection(@"Data Source=(LocalDB)\v11.0;
-                                                                AttachDbFilename='C:\Merceria_DB\MerceriaLenceriaDB.mdf';
-                                                                Integrated Security=True");
-
         public void CargarDatos()
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -55,11 +50,11 @@ namespace Merceria_Lenceria_Paula
 
             // Tomado desde la clase dtlMerceria
             dtlStock obReg = new dtlStock();
-            obReg.UpdateDatos(txtCodigo.Text,
+            obReg.UpdateDatosStock(txtCodigo.Text,
                               txtFabricante.Text,
                               txtDescripcion.Text,
-                              txtPrecio.Text,
-                              CalculateMD5Hash(txtPrecio.Text),
+                              txtPrecio.Text.Replace(',', '.'),
+                              CalculateMD5Hash(txtPrecio.Text.Trim().Replace(',', '.') + txtCantidad.Text.Trim()),
                               txtCantidad.Text);
                                                     
             Cursor.Current = Cursors.Default;
@@ -68,113 +63,21 @@ namespace Merceria_Lenceria_Paula
 
         public void InsertDatos()
         {
-            // Agregad los datos nuevos
             Cursor.Current = Cursors.WaitCursor;
 
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                SqlDataReader reader;
+            // Tomado desde la clase dtlMerceria
+            dtlStock obReg = new dtlStock();
+            obReg.InsertDatos(txtCodigo.Text,
+                              txtFabricante.Text,
+                              txtDescripcion.Text,
+                              txtPrecio.Text.Replace(',', '.'),
+                              CalculateMD5Hash(txtPrecio.Text.Replace(',', '.') + txtCantidad.Text),
+                              txtCantidad.Text);
 
-                string hash_precio = CalculateMD5Hash(txtPrecio.Text.Replace(',', '.') + txtCantidad.Text);
-                
-                cmd.CommandText = "insert into stock values('" +
-                                    txtCodigo.Text + "','" +
-                                    txtFabricante.Text + "','" +
-                                    txtDescripcion.Text + "','" +
-                                    txtPrecio.Text + "',null,null,null," +
-                                    txtCantidad.Text + ",null,null,null,'" +
-                                    hash_precio +"')";
-
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = sqlConnection1;
-
-                sqlConnection1.Open();
-
-                reader = cmd.ExecuteReader();
-
-                Cursor.Current = Cursors.Default;
-                sqlConnection1.Close();
-            }
-            catch (Exception e)
-            {
-                Cursor.Current = Cursors.Default;
-                sqlConnection1.Close();
-
-                if (e.HResult == -2146232060)
-                {
-                      MessageBox.Show("CODIGO ya existe, No se puede dar de alta, intente nuevamente!",
-                                    "Importante!!",
-		                            MessageBoxButtons.OK,
-		                            MessageBoxIcon.Hand,
-                                    MessageBoxDefaultButton.Button1);
-                }
-                else
-                {
-                    MessageBox.Show("Error comuniquese con Soporte." + e);
-                }
-            }
-        }
-        
-        /*
-        public void UpdateDatos()
-        {
-            // Actualizar datos nuevos
-            Cursor.Current = Cursors.WaitCursor;
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                SqlDataReader reader;
-
-                string hash_precio = CalculateMD5Hash(txtPrecio.Text.Replace(',', '.') + txtCantidad.Text);
-
-                cmd.CommandText = "update stock set fabricante='" + txtFabricante.Text + "'," +
-                                                    "descripcion='" + txtDescripcion.Text + "'," +
-                                                    " precio='" + txtPrecio.Text.Replace(',','.') + "'," +
-                                                    " cant_actual=" + txtCantidad.Text + "," + 
-                                                    " hash='" + hash_precio + "'" +
-                                                    " where id_codigo='" + txtCodigo.Text +"'";
-
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = sqlConnection1;
-
-                sqlConnection1.Open();
-
-                reader = cmd.ExecuteReader();
-
-                Cursor.Current = Cursors.Default;
-                sqlConnection1.Close();
-            }
-            catch (Exception e)
-            {
-                Cursor.Current = Cursors.Default;
-                sqlConnection1.Close();
-                MessageBox.Show("{0} Exception caught." + e);
-            }
-        }
-         */
-
-        public void BorrarDatos()
-        {
-            // Borra los registros
-            Cursor.Current = Cursors.WaitCursor;
-
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader reader;
-
-            cmd.CommandText = "delete from stock where id_codigo='" + txtCodigo.Text +"'" ;
-
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = sqlConnection1;
-
-            sqlConnection1.Open();
-
-            reader = cmd.ExecuteReader();
-            
             Cursor.Current = Cursors.Default;
-            sqlConnection1.Close();
 
         }
+      
         public ControlStock()
         {
             // Comienzo...
@@ -186,11 +89,11 @@ namespace Merceria_Lenceria_Paula
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             // Al hacer click en un valor los muestra
-            txtCodigo.Text = Convert.ToString(gvDatos.CurrentRow.Cells[0].Value);
-            txtFabricante.Text = Convert.ToString(gvDatos.CurrentRow.Cells[1].Value);
-            txtDescripcion.Text = Convert.ToString(gvDatos.CurrentRow.Cells[2].Value);
-            txtPrecio.Text = Convert.ToString(gvDatos.CurrentRow.Cells[3].Value);
-            txtCantidad.Text = Convert.ToString(gvDatos.CurrentRow.Cells[4].Value);
+            txtCodigo.Text = gvDatos.CurrentRow.Cells[0].Value.ToString();
+            txtFabricante.Text = gvDatos.CurrentRow.Cells[1].Value.ToString();
+            txtDescripcion.Text = gvDatos.CurrentRow.Cells[2].Value.ToString();
+            txtPrecio.Text = gvDatos.CurrentRow.Cells[3].Value.ToString();
+            txtCantidad.Text = gvDatos.CurrentRow.Cells[4].Value.ToString();
             btnBorrar.Enabled = true;
         }
 
@@ -251,19 +154,27 @@ namespace Merceria_Lenceria_Paula
 
         private void txtPrecio_Leave(object sender, EventArgs e)
         {
+
             if (txtPrecio.TextLength > 0)
             {
-                txtPrecio.Text = String.Format("{0:c}", txtPrecio.Text);
+                txtPrecio.Text = String.Format("{0:0.00}", Convert.ToDecimal(txtPrecio.Text));
             }
             btnGuardar.Enabled = Todo_OK();
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            BorrarDatos();
+            Cursor.Current = Cursors.WaitCursor;
+
+            // Tomado desde la clase dtlMerceria
+            dtlStock obReg = new dtlStock();
+            obReg.BorrarDatosStock(txtCodigo.Text);
+
             Limpiar_Controles();
-            gvDatos.Rows.Clear();
             CargarDatos();
+
+            Cursor.Current = Cursors.Default;
+            
         }
 
         private void txtCodigo_Leave(object sender, EventArgs e)
@@ -291,11 +202,7 @@ namespace Merceria_Lenceria_Paula
             if (!txtCodigo.Enabled)
             {
                 // Si boton NUEVO no está habilitado es un UPDATE
-
                 UpdateDatos();
-
-
-
                 Limpiar_Controles();
                 CargarDatos();
             }
@@ -304,9 +211,9 @@ namespace Merceria_Lenceria_Paula
                 // Sino es un INSERT
                 InsertDatos();
                 Limpiar_Controles();
-                gvDatos.Rows.Clear();
                 CargarDatos();
             }
+            
             // Pongo los controles en flase para empezar de nuevo
             btnGuardar.Enabled = false;
             txtCodigo.Enabled = false;
@@ -315,13 +222,46 @@ namespace Merceria_Lenceria_Paula
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsNumber(e.KeyChar) && e.KeyChar != 46)
+            // Primero compruebo si es un signo de puntuación
+            if (char.IsPunctuation(e.KeyChar))
             {
-                txtPrecio.Focus();
+                // Referencio el control TextBox subyacente.
+                //
+                TextBox tb = (TextBox)sender;
+
+                switch (e.KeyChar)
+                {
+                    case '.':
+                    case ',':
+                        // Obtengo el carácter separador decimal existente
+                        // actualmente en la configuración regional de Windows.
+                        //
+                        string separadorDecimal = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+
+                        e.KeyChar = Convert.ToChar(separadorDecimal[0]);
+
+                        if (tb.Text.Contains(separadorDecimal))
+                        {
+                            // Ya existe el separador decimal
+                            e.Handled = true;
+                        }
+                        break;
+                    case '-':
+                        e.Handled = true;
+                        break;
+                }
+            }
+            else if (Convert.ToInt32(e.KeyChar) == Convert.ToInt32(Keys.Back))
+            {
+            }
+            // Tecla de retroceso; sin implementación.
+            else if (!char.IsNumber(e.KeyChar))
+            {
+                // Sólo se aceptan números
                 e.Handled = true;
             }
-            btnGuardar.Enabled = Todo_OK();
         }
+        
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -338,7 +278,6 @@ namespace Merceria_Lenceria_Paula
             Reporte frm = new Reporte();
             frm.ShowDialog();
         }
-
 
     }
 }

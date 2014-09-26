@@ -101,6 +101,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MerceriaLenceriaDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MerceriaLenceriaDBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MerceriaLenceriaDBDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Proveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +186,17 @@
     </None>
     <None Include="MerceriaLenceriaDBDataSet.xss">
       <DependentUpon>MerceriaLenceriaDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MerceriaLenceriaDBDataSet1.xsc">
+      <DependentUpon>MerceriaLenceriaDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="MerceriaLenceriaDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MerceriaLenceriaDBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MerceriaLenceriaDBDataSet1.xss">
+      <DependentUpon>MerceriaLenceriaDBDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -394,7 +394,10 @@ namespace Merceria_Lenceria_Paula
                 while (reader.Read())
                 {
                     // Controlo que los PRECIOS no estén alterados
-                    string hash_precio = CalculateMD5Hash(reader.GetSqlValue(3).ToString() + reader.GetSqlValue(7).ToString());
+                    string p=reader.GetSqlValue(3).ToString();
+                    string c=reader.GetSqlValue(7).ToString();
+
+                    string hash_precio = CalculateMD5Hash(p+ c);
                     string precio_hash = reader.GetSqlValue(11).ToString();
                     
                     if (precio_hash  != hash_precio)
