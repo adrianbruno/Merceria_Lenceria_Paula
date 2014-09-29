@@ -146,43 +146,10 @@ namespace Merceria_Lenceria_Paula
         {
             // Ver si existe una venta previa y la carga
             Cursor.Current = Cursors.WaitCursor;
-
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader reader;
-
-            cmd.CommandText = "SELECT * FROM " + _Usuario.Trim() + "_tmpVenta ";
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = sqlConnection1;
-
-            sqlConnection1.Open();
-
-            reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    dg.Rows.Add(reader.GetSqlValue(0),
-                        reader.GetSqlValue(1),
-                        reader.GetSqlValue(2),
-                        reader.GetSqlValue(3),
-                        reader.GetSqlValue(4).ToString().Replace('.', ','));
-
-                        // Modifico la cant disponible
-                        cmbCantidad.Items.Clear();
-
-                        int st = Convert.ToInt16(reader.GetSqlValue(5).ToString());
-
-                        for (int i = 1; i <= st; i++)
-                        {
-                            cmbCantidad.Items.Add(i);
-                        }
-                        
-                    if (st == 0) cmbCantidad.Text = "";
-                }
-            }
+            
+            dg.Refresh();
+            
             Cursor.Current = Cursors.Default;
-            sqlConnection1.Close();
         }
             
 
@@ -200,73 +167,19 @@ namespace Merceria_Lenceria_Paula
 
             Cursor.Current = Cursors.Default;
 
-            /*
-            // Ver si existe una venta previa, sino crea la tabla
-            Cursor.Current = Cursors.WaitCursor;
-
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader reader;
-
-            cmd.CommandText = "SELECT name FROM sysobjects WHERE xtype='u' and name='" + _Usuario + "_tmpVenta'";
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = sqlConnection1;
-
-            sqlConnection1.Open();
-
-            reader = cmd.ExecuteReader();
-
-            // Si no tiene registros es porque no existe la tabla temporal de venta para el usuario
-            // Entonces la creo
-            if (reader.HasRows== false) 
-            {
-
-                sqlConnection1.Close();
-
-                cmd.CommandText = "CREATE TABLE " + _Usuario + "_tmpVenta " +
-                    "([Id_codigo] VARCHAR (20) NOT NULL, " +
-                    "[Descripcion] VARCHAR (50) NOT NULL, " +
-                    "[fabricante] VARCHAR (50) NOT NULL, " +
-                    "[cant_actual] INT NULL, " +
-                    "[precio] DECIMAL (18, 2) NOT NULL," +
-                    "[stock_actual] INT NULL) "; 
-
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = sqlConnection1;
-                
-                sqlConnection1.Open();
-                reader = cmd.ExecuteReader();
-            }
-
-            Cursor.Current = Cursors.Default;
-            sqlConnection1.Close();
-             */
         }
 
         void AgregotmpVenta(string Id_cod, String Desc, string Fabri, string Cant, string Monto, string Stock_ac)
         {
-            // Agrego los datos seleccionados a la tambla TEMP de venta
             Cursor.Current = Cursors.WaitCursor;
 
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader reader;
+            // Tomado desde la clase dtlMerceria
+            dtlVenta obReg = new dtlVenta();
 
-            cmd.CommandText = "INSERT INTO " + _Usuario + "_tmpVenta VALUES (" +
-                              "'" + Id_cod + "'," +
-                              "'" + Desc + "'," +
-                              "'" + Fabri + "'," +
-                                    Cant + "," +
-                              "'" + Monto.Replace(',', '.') + "'," +
-                                    Stock_ac + ")";
-
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = sqlConnection1;
-
-            sqlConnection1.Open();
-
-            reader = cmd.ExecuteReader();
+            obReg.Agregotmp (_Usuario,Id_cod,Desc,Fabri,Cant,Monto,Stock_ac);
 
             Cursor.Current = Cursors.Default;
-            sqlConnection1.Close();
+
         }
 
         public void UpdateDatos()
@@ -309,71 +222,41 @@ namespace Merceria_Lenceria_Paula
         }
         void FinalizotmpVenta()
         {
-            // TRUNCO la tabla temporal por venta finalizada correctamente
             Cursor.Current = Cursors.WaitCursor;
 
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader reader;
+            // Tomado desde la clase dtlMerceria
+            dtlVenta obReg = new dtlVenta();
 
-            cmd.CommandText = "TRUNCATE TABLE " + _Usuario + "_tmpVenta";
-
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = sqlConnection1;
-
-            sqlConnection1.Open();
-
-            reader = cmd.ExecuteReader();
+            obReg.FinalizarTmpVenta(_Usuario);
 
             Cursor.Current = Cursors.Default;
-            sqlConnection1.Close();
+
         }
 
         void CerrartmpVenta()
         {
-            // ELIMINO la tabla temporal por salida del usuario
             Cursor.Current = Cursors.WaitCursor;
 
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader reader;
+            // Tomado desde la clase dtlMerceria
+            dtlVenta obReg = new dtlVenta();
 
-            cmd.CommandText = "DROP TABLE " + _Usuario + "_tmpVenta";
-
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = sqlConnection1;
-
-            sqlConnection1.Open();
-
-            reader = cmd.ExecuteReader();
+            obReg.CerrarTmpVenta(_Usuario);
 
             Cursor.Current = Cursors.Default;
-            sqlConnection1.Close();
         }
+
         public void CargarDatosCombo()
         {
-            // Carga los datos en la grid
+
             Cursor.Current = Cursors.WaitCursor;
 
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader reader;
+            // Tomado desde la clase dtlMerceria
+            dtlVenta obReg = new dtlVenta();
 
-            cmd.CommandText = "SELECT id_codigo FROM stock";
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = sqlConnection1;
-
-            sqlConnection1.Open();
-
-            reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    cmbCodigo.Items.Add(reader.GetSqlValue(0));
-                }
-            }
-
+            cmbCodigo.DataSource = obReg.ListaID();
+            
             Cursor.Current = Cursors.Default;
-            sqlConnection1.Close();
+
         }
 
         public Venta()
@@ -398,11 +281,6 @@ namespace Merceria_Lenceria_Paula
             Texto = Texto + "\n Total: 55.90";
 
             e.Graphics.DrawString(Texto, letra, Brushes.Black, 1, 1);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void cmbCodigo_SelectedValueChanged(object sender, EventArgs e)
@@ -467,12 +345,6 @@ namespace Merceria_Lenceria_Paula
 
             }
             txtGasto_Total.Text = resul.ToString(nfi);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            
-
         }
 
         private void dg_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)

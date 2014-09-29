@@ -44,6 +44,13 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblCodigoBarra = new System.Windows.Forms.Label();
             this.dg = new System.Windows.Forms.DataGridView();
+            this.Cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Des = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fabricante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock_actual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmdCerrar = new System.Windows.Forms.Button();
             this.cmdAceptar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,13 +59,6 @@
             this.chkTarjeta = new System.Windows.Forms.RadioButton();
             this.chkEfectivo = new System.Windows.Forms.RadioButton();
             this.txtGasto_Total = new System.Windows.Forms.TextBox();
-            this.Cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Des = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fabricante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock_actual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg)).BeginInit();
@@ -230,6 +230,52 @@
             this.dg.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dg_RowsAdded);
             this.dg.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dg_RowsRemoved);
             // 
+            // Cod
+            // 
+            this.Cod.HeaderText = "Codigo";
+            this.Cod.Name = "Cod";
+            this.Cod.ReadOnly = true;
+            // 
+            // Des
+            // 
+            this.Des.HeaderText = "Descripcion";
+            this.Des.Name = "Des";
+            this.Des.ReadOnly = true;
+            // 
+            // Fabricante
+            // 
+            this.Fabricante.HeaderText = "Fabricante";
+            this.Fabricante.Name = "Fabricante";
+            this.Fabricante.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            this.Cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Precio
+            // 
+            dataGridViewCellStyle1.NullValue = null;
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
+            // stock_actual
+            // 
+            this.stock_actual.HeaderText = "stock_actual";
+            this.stock_actual.Name = "stock_actual";
+            this.stock_actual.ReadOnly = true;
+            this.stock_actual.Visible = false;
+            // 
+            // precio_unitario
+            // 
+            this.precio_unitario.HeaderText = "precio_unitario";
+            this.precio_unitario.Name = "precio_unitario";
+            this.precio_unitario.ReadOnly = true;
+            // 
             // cmdCerrar
             // 
             this.cmdCerrar.Font = new System.Drawing.Font("News706 BT", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -315,52 +361,6 @@
             this.txtGasto_Total.Size = new System.Drawing.Size(272, 71);
             this.txtGasto_Total.TabIndex = 20;
             this.txtGasto_Total.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // Cod
-            // 
-            this.Cod.HeaderText = "Codigo";
-            this.Cod.Name = "Cod";
-            this.Cod.ReadOnly = true;
-            // 
-            // Des
-            // 
-            this.Des.HeaderText = "Descripcion";
-            this.Des.Name = "Des";
-            this.Des.ReadOnly = true;
-            // 
-            // Fabricante
-            // 
-            this.Fabricante.HeaderText = "Fabricante";
-            this.Fabricante.Name = "Fabricante";
-            this.Fabricante.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            this.Cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Precio
-            // 
-            dataGridViewCellStyle1.NullValue = null;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // stock_actual
-            // 
-            this.stock_actual.HeaderText = "stock_actual";
-            this.stock_actual.Name = "stock_actual";
-            this.stock_actual.ReadOnly = true;
-            this.stock_actual.Visible = false;
-            // 
-            // precio_unitario
-            // 
-            this.precio_unitario.HeaderText = "precio_unitario";
-            this.precio_unitario.Name = "precio_unitario";
-            this.precio_unitario.ReadOnly = true;
             // 
             // Venta
             // 
