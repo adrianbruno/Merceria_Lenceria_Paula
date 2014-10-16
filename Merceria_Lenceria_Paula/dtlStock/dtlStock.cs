@@ -31,15 +31,16 @@ namespace dtlMerceria
                 SqlCommand cmd = new SqlCommand();
                 SqlDataReader reader;
 
-                cmd.CommandText = "insert into stock values('" +
-                                    _Cod + "','" +
-                                    _Fab + "','" +
-                                    _Desc + "','" +
-                                    _Precio + "',null,null,null," +
-                                    _Cant_Actual + ",null,null,null,'" +
-                                    _hash_precio + "')";
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "sp_ins_item_stock";
+                cmd.Parameters.Add("@id_cod", SqlDbType.VarChar).Value = _Cod;
+                cmd.Parameters.Add("@fabricante", SqlDbType.VarChar).Value = _Fab;
+                cmd.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = _Desc;
+                cmd.Parameters.Add("@precio", SqlDbType.Decimal).Value = _Precio;
+                cmd.Parameters.Add("@cant_actual", SqlDbType.Int).Value = _Cant_Actual;
+                cmd.Parameters.Add("@hash", SqlDbType.VarChar).Value = _hash_precio;
+
                 cmd.Connection = conn;
 
                 conn.Open();
@@ -86,9 +87,12 @@ namespace dtlMerceria
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
 
-            cmd.CommandText = "delete from stock where id_codigo='" + _Cod + "'";
+            cmd.CommandType = CommandType.StoredProcedure;
+            
+            cmd.CommandText = "sp_delete_item_stock";
 
-            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@id_cod", SqlDbType.VarChar).Value = _Cod;
+
             cmd.Connection = conn;
 
             conn.Open();
@@ -112,14 +116,17 @@ namespace dtlMerceria
          SqlCommand cmd = new SqlCommand();
          SqlDataReader reader;
 
-         cmd.CommandText = "update stock set fabricante='" + _Fab + "'," +
-                                "descripcion='" + _Desc + "'," +
-                                " precio='" + _Precio.Replace(',', '.') + "'," +
-                                " cant_actual=" + _Cant_Actual + "," +
-                                " hash='" + _hash_precio + "'" +
-                                " where id_codigo='" + _Cod + "'";
+         cmd.CommandType = CommandType.StoredProcedure;
 
-        cmd.CommandType = CommandType.Text;
+         cmd.CommandText = "sp_upd_item_stock";
+
+         cmd.Parameters.Add("@id_cod", SqlDbType.VarChar).Value = _Cod;
+         cmd.Parameters.Add("@fabricante", SqlDbType.VarChar).Value = _Fab;
+         cmd.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = _Desc;
+         cmd.Parameters.Add("@precio", SqlDbType.Decimal).Value = _Precio;
+         cmd.Parameters.Add("@cant_actual", SqlDbType.Int).Value = _Cant_Actual;
+         cmd.Parameters.Add("@hash", SqlDbType.VarChar).Value = _hash_precio;
+
         cmd.Connection = conn;
         conn.Open();
 
