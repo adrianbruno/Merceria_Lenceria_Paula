@@ -389,6 +389,8 @@ namespace Merceria_Lenceria_Paula
             reader = cmd.ExecuteReader();
             lblStatus.Text = "";
 
+            // Removido temporalmente
+            /*
             if (reader.HasRows)
             {
                 while (reader.Read())
@@ -409,7 +411,8 @@ namespace Merceria_Lenceria_Paula
                     }
                 }
             }
-            
+            */
+
             Cursor.Current = Cursors.Default;
             reader.Close();
             sqlConnection1.Close();
@@ -446,7 +449,9 @@ namespace Merceria_Lenceria_Paula
 
         private void frmPrincipal_Activated(object sender, EventArgs e)
         {
-            CargarDatos();
+         // Removido temporalmente
+         CargarDatos();
+         //
         }
 
         private void btnMantenimiento_Click(object sender, EventArgs e)

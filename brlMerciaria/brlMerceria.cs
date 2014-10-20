@@ -5,6 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
+using System.Data.SqlClient;
+using System.Data;
+
+using dtlMerceria;
+
 namespace brlMerceria
 {
     public class brlStock
@@ -24,5 +29,38 @@ namespace brlMerceria
            }
            return sb.ToString();
         }
+      
+      public DataTable DatosStock_basico()
+      {
+          dtlStock obReg = new dtlStock();
+          return obReg.DatosStock_basico();
+      }
+
+      public void UpdateDatosStock(string _cod, string _fab, string _desc, string _precio, string _cant)
+      {
+          dtlStock obReg = new dtlStock();
+          obReg.UpdateDatosStock(_cod,
+                                 _fab,
+                                 _desc,
+                                 _precio,
+                                 CalculateMD5Hash(_precio + _cant),
+                                 _cant);
+      }
+
+      public void InsertDatosStock(string _cod, string _fab, string _desc,string _precio, string _cant)
+      {
+          dtlStock obReg = new dtlStock();
+          obReg.InsertDatos(_cod,
+                            _fab,
+                            _desc,
+                            _precio,
+                            CalculateMD5Hash(_precio + _cant),
+                            _cant);
+      }
+      public void BorrarDatosStock(string _cod)
+      {
+         dtlStock obReg = new dtlStock();
+         obReg.BorrarDatosStock(_cod);
+      }
     }
 }

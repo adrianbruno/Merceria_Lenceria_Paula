@@ -1,63 +1,50 @@
 ﻿using System;
 using System.Text;
 using System.Windows.Forms;
-using System.Security.Cryptography;
 
 using brlMerceria;
-using dtlMerceria;
+// using dtlMerceria;
 
 namespace Merceria_Lenceria_Paula
 {
     public partial class ControlStock : Form
     {
-
-        public void CargarDatos()
+        private void CargarDatos()
         {
             Cursor.Current = Cursors.WaitCursor;
-            
-            // Tomado desde la clase dtlMerceria
-            dtlStock obReg = new dtlStock();
+
+            brlStock obReg = new brlStock();
             gvDatos.DataSource = obReg.DatosStock_basico();
 
             Cursor.Current = Cursors.Default;
             
         }
 
-        public void UpdateDatos()
+        private void UpdateDatos()
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            brlStock mdc5 = new brlStock();
-            string _mdc5 = mdc5.CalculateMD5Hash(txtPrecio.Text.Trim().Replace(',', '.') + txtCantidad.Text.Trim()); 
-
-            // Tomado desde la clase dtlMerceria
-            dtlStock obReg = new dtlStock();
+            brlStock obReg = new brlStock();
             obReg.UpdateDatosStock(txtCodigo.Text,
-                              txtFabricante.Text,
-                              txtDescripcion.Text,
-                              txtPrecio.Text.Replace(',', '.'),
-                              _mdc5.ToString(),
-                              txtCantidad.Text);
+                                   txtFabricante.Text,
+                                   txtDescripcion.Text,
+                                   txtPrecio.Text,
+                                   txtCantidad.Text);
                                                     
             Cursor.Current = Cursors.Default;
 
         }
 
-        public void InsertDatos()
+        private void InsertDatos()
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            brlStock mdc5 = new brlStock();
-            string _mdc5 = mdc5.CalculateMD5Hash(txtPrecio.Text.Trim().Replace(',', '.') + txtCantidad.Text.Trim()); 
-
-            // Tomado desde la clase dtlMerceria
-            dtlStock obReg = new dtlStock();
-            obReg.InsertDatos(txtCodigo.Text,
-                              txtFabricante.Text,
-                              txtDescripcion.Text,
-                              txtPrecio.Text.Replace(',', '.'),
-                              _mdc5.ToString(),
-                              txtCantidad.Text);
+            brlStock obReg = new brlStock();
+            obReg.InsertDatosStock(txtCodigo.Text,
+                                   txtFabricante.Text,
+                                   txtDescripcion.Text,
+                                   txtPrecio.Text,
+                                   txtCantidad.Text);
 
             Cursor.Current = Cursors.Default;
 
@@ -151,8 +138,7 @@ namespace Merceria_Lenceria_Paula
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            // Tomado desde la clase dtlMerceria
-            dtlStock obReg = new dtlStock();
+            brlStock obReg = new brlStock();
             obReg.BorrarDatosStock(txtCodigo.Text);
 
             Limpiar_Controles();
@@ -246,7 +232,6 @@ namespace Merceria_Lenceria_Paula
                 e.Handled = true;
             }
         }
-        
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -265,6 +250,5 @@ namespace Merceria_Lenceria_Paula
             frm.ShowDialog();
              */
         }
-
     }
 }
