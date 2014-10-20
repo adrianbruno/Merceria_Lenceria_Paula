@@ -1,0 +1,5 @@
+C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\wrlMerceria\bin\Debug\wrlMerceria.dll
+C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\wrlMerceria\bin\Debug\wrlMerceria.pdb
+C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\wrlMerceria\obj\Debug\wrlMerceria.csprojResolveAssemblyReference.cache
+C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\wrlMerceria\obj\Debug\wrlMerceria.dll
+C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\wrlMerceria\obj\Debug\wrlMerceria.pdb

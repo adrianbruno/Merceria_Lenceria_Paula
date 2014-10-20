@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0051E92E-2049-4DAF-81C9-D751C2EF6CE5}</ProjectGuid>
+    <ProjectGuid>{01D54428-7A21-410D-A174-C3E95680297D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>brlMerceria</RootNamespace>
-    <AssemblyName>brlMerceria</AssemblyName>
+    <RootNamespace>wrlMerceria</RootNamespace>
+    <AssemblyName>wrlMerceria</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,18 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="brlMerceria.cs" />
+    <Compile Include="wrlGenerica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Merceria_Lenceria_Paula\dtlStock\dtlMerceria.csproj">
-      <Project>{a78a18d8-96c6-4788-a242-d59e4306d704}</Project>
-      <Name>dtlMerceria</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\wrlMerceria\wrlMerceria.csproj">
-      <Project>{01d54428-7a21-410d-a174-c3e95680297d}</Project>
-      <Name>wrlMerceria</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

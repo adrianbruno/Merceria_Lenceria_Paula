@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "brlMerceria", "..\brlMercia
 		{A78A18D8-96C6-4788-A242-D59E4306D704} = {A78A18D8-96C6-4788-A242-D59E4306D704}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wrlMerceria", "..\wrlMerceria\wrlMerceria.csproj", "{01D54428-7A21-410D-A174-C3E95680297D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{0051E92E-2049-4DAF-81C9-D751C2EF6CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0051E92E-2049-4DAF-81C9-D751C2EF6CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0051E92E-2049-4DAF-81C9-D751C2EF6CE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01D54428-7A21-410D-A174-C3E95680297D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01D54428-7A21-410D-A174-C3E95680297D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01D54428-7A21-410D-A174-C3E95680297D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01D54428-7A21-410D-A174-C3E95680297D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

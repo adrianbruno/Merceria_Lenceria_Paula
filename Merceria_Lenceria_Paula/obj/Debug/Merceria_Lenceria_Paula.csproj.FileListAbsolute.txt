@@ -54,3 +54,5 @@ C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\obj\D
 C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\obj\Debug\Merceria_Lenceria_Paula.csproj.GenerateResource.Cache
 C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\bin\Debug\brlMerceria.dll
 C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\bin\Debug\brlMerceria.pdb
+C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\bin\Debug\wrlMerceria.dll
+C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\bin\Debug\wrlMerceria.pdb

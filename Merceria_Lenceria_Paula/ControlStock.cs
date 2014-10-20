@@ -9,10 +9,20 @@ namespace Merceria_Lenceria_Paula
 {
     public partial class ControlStock : Form
     {
+
+        public ControlStock()
+        {
+            // Comienzo...
+            InitializeComponent();
+            CargarDatos();
+            txtCodigo.Focus();
+        }
+
         private void CargarDatos()
         {
             Cursor.Current = Cursors.WaitCursor;
-
+            
+            // Carga los datos en la grilla para poder seleccionarlos
             brlStock obReg = new brlStock();
             gvDatos.DataSource = obReg.DatosStock_basico();
 
@@ -23,7 +33,8 @@ namespace Merceria_Lenceria_Paula
         private void UpdateDatos()
         {
             Cursor.Current = Cursors.WaitCursor;
-
+            
+            // Realiza el update de los datos en STOCK
             brlStock obReg = new brlStock();
             obReg.UpdateDatosStock(txtCodigo.Text,
                                    txtFabricante.Text,
@@ -38,7 +49,7 @@ namespace Merceria_Lenceria_Paula
         private void InsertDatos()
         {
             Cursor.Current = Cursors.WaitCursor;
-
+            // Realiza el insert de los datos en STOCK
             brlStock obReg = new brlStock();
             obReg.InsertDatosStock(txtCodigo.Text,
                                    txtFabricante.Text,
@@ -50,17 +61,9 @@ namespace Merceria_Lenceria_Paula
 
         }
       
-        public ControlStock()
-        {
-            // Comienzo...
-            InitializeComponent();
-            CargarDatos();
-            txtCodigo.Focus();
-        }
-
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            // Al hacer click en un valor los muestra
+            // Al hacer click en un valor los muestra en los text
             txtCodigo.Text = gvDatos.CurrentRow.Cells[0].Value.ToString();
             txtFabricante.Text = gvDatos.CurrentRow.Cells[1].Value.ToString();
             txtDescripcion.Text = gvDatos.CurrentRow.Cells[2].Value.ToString();
@@ -69,14 +72,7 @@ namespace Merceria_Lenceria_Paula
             btnBorrar.Enabled = true;
         }
 
-
-        private void btnAplicar_Click(object sender, EventArgs e)
-        {
-            txtCodigo.Enabled = true;
-            gvDatos.Enabled = false;
-            Limpiar_Controles();
-        }
-
+               
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsNumber(e.KeyChar) && !Char.IsLetter(e.KeyChar))
@@ -98,10 +94,6 @@ namespace Merceria_Lenceria_Paula
             txtCodigo.Focus();
             btnBorrar.Enabled = false;
         }
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            Limpiar_Controles();
-        }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -110,6 +102,7 @@ namespace Merceria_Lenceria_Paula
 
         private bool Todo_OK()
         {
+         // Controla que TODOS los campos estén correctos
             if (txtCodigo.Text.Length > 0 &&
                  txtFabricante.Text.Length > 0 &&
                  txtDescripcion.Text.Length > 0 &&
@@ -126,7 +119,6 @@ namespace Merceria_Lenceria_Paula
 
         private void txtPrecio_Leave(object sender, EventArgs e)
         {
-
             if (txtPrecio.TextLength > 0)
             {
                 txtPrecio.Text = String.Format("{0:0.00}", Convert.ToDecimal(txtPrecio.Text));
@@ -138,6 +130,7 @@ namespace Merceria_Lenceria_Paula
         {
             Cursor.Current = Cursors.WaitCursor;
 
+            // Realiza el borrado del registro de STOCK
             brlStock obReg = new brlStock();
             obReg.BorrarDatosStock(txtCodigo.Text);
 
@@ -222,9 +215,10 @@ namespace Merceria_Lenceria_Paula
                         break;
                 }
             }
-            else if (Convert.ToInt32(e.KeyChar) == Convert.ToInt32(Keys.Back))
-            {
-            }
+// Me parece que esto no va
+//            else if (Convert.ToInt32(e.KeyChar) == Convert.ToInt32(Keys.Back))
+//            {
+//            }
             // Tecla de retroceso; sin implementación.
             else if (!char.IsNumber(e.KeyChar))
             {
@@ -249,6 +243,13 @@ namespace Merceria_Lenceria_Paula
             Reporte frm = new Reporte();
             frm.ShowDialog();
              */
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            txtCodigo.Enabled = true;
+            gvDatos.Enabled = false;
+            Limpiar_Controles();
         }
     }
 }
