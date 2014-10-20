@@ -29,6 +29,9 @@ namespace dtlMerceria
 
             reader = cmd.ExecuteReader();
 
+            /*
+             * VER!!!!
+             * 
             if (reader.HasRows)
             {
                 while (reader.Read())
@@ -52,7 +55,7 @@ namespace dtlMerceria
                     if (st == 0) cmbCantidad.Text = "";
                 }
             }
-
+            */
             conn.Close();
         }
         /// <summary>

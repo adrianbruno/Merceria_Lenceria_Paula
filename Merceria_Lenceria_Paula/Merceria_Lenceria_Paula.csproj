@@ -167,6 +167,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\brlMerciaria\brlMerceria.csproj">
+      <Project>{0051e92e-2049-4daf-81c9-d751c2ef6ce5}</Project>
+      <Name>brlMerceria</Name>
+    </ProjectReference>
     <ProjectReference Include="dtlStock\dtlMerceria.csproj">
       <Project>{a78a18d8-96c6-4788-a242-d59e4306d704}</Project>
       <Name>dtlMerceria</Name>

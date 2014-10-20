@@ -3,27 +3,13 @@ using System.Text;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 
+using brlMerceria;
 using dtlMerceria;
 
 namespace Merceria_Lenceria_Paula
 {
     public partial class ControlStock : Form
     {
-        public string CalculateMD5Hash(string input)
-        {
-            // step 1, calculate MD5 hash from input
-            MD5 md5 = System.Security.Cryptography.MD5.Create();
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-            byte[] hash = md5.ComputeHash(inputBytes);
-
-            // step 2, convert byte array to hex string
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
-            {
-                sb.Append(hash[i].ToString("X2"));
-            }
-            return sb.ToString();
-        }
 
         public void CargarDatos()
         {
@@ -41,13 +27,16 @@ namespace Merceria_Lenceria_Paula
         {
             Cursor.Current = Cursors.WaitCursor;
 
+            brlStock mdc5 = new brlStock();
+            string _mdc5 = mdc5.CalculateMD5Hash(txtPrecio.Text.Trim().Replace(',', '.') + txtCantidad.Text.Trim()); 
+
             // Tomado desde la clase dtlMerceria
             dtlStock obReg = new dtlStock();
             obReg.UpdateDatosStock(txtCodigo.Text,
                               txtFabricante.Text,
                               txtDescripcion.Text,
                               txtPrecio.Text.Replace(',', '.'),
-                              CalculateMD5Hash(txtPrecio.Text.Trim().Replace(',', '.') + txtCantidad.Text.Trim()),
+                              _mdc5.ToString(),
                               txtCantidad.Text);
                                                     
             Cursor.Current = Cursors.Default;
@@ -58,13 +47,16 @@ namespace Merceria_Lenceria_Paula
         {
             Cursor.Current = Cursors.WaitCursor;
 
+            brlStock mdc5 = new brlStock();
+            string _mdc5 = mdc5.CalculateMD5Hash(txtPrecio.Text.Trim().Replace(',', '.') + txtCantidad.Text.Trim()); 
+
             // Tomado desde la clase dtlMerceria
             dtlStock obReg = new dtlStock();
             obReg.InsertDatos(txtCodigo.Text,
                               txtFabricante.Text,
                               txtDescripcion.Text,
                               txtPrecio.Text.Replace(',', '.'),
-                              CalculateMD5Hash(txtPrecio.Text.Replace(',', '.') + txtCantidad.Text),
+                              _mdc5.ToString(),
                               txtCantidad.Text);
 
             Cursor.Current = Cursors.Default;

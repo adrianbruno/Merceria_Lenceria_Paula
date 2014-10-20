@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 
@@ -88,10 +83,10 @@ namespace dtlMerceria
             SqlDataReader reader;
 
             cmd.CommandType = CommandType.StoredProcedure;
-            
-            cmd.CommandText = "sp_delete_item_stock";
 
-            cmd.Parameters.Add("@id_cod", SqlDbType.VarChar).Value = _Cod;
+            cmd.CommandText = "sp_del_item_stock";
+
+            cmd.Parameters.Add("@id_codigo", SqlDbType.VarChar).Value = _Cod;
 
             cmd.Connection = conn;
 

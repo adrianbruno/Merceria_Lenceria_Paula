@@ -1,0 +1,7 @@
+C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\brlMerciaria\bin\Debug\brlMerceria.dll
+C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\brlMerciaria\bin\Debug\brlMerceria.pdb
+C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\brlMerciaria\bin\Debug\dtlStock.dll
+C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\brlMerciaria\bin\Debug\dtlStock.pdb
+C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\brlMerciaria\obj\Debug\brlMerceria.csprojResolveAssemblyReference.cache
+C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\brlMerciaria\obj\Debug\brlMerceria.dll
+C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\brlMerciaria\obj\Debug\brlMerceria.pdb
