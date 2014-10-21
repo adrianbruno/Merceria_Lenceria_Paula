@@ -3,13 +3,11 @@ using System.Text;
 using System.Windows.Forms;
 
 using brlMerceria;
-// using dtlMerceria;
 
 namespace Merceria_Lenceria_Paula
 {
     public partial class ControlStock : Form
     {
-
         public ControlStock()
         {
             // Comienzo...
@@ -215,10 +213,6 @@ namespace Merceria_Lenceria_Paula
                         break;
                 }
             }
-// Me parece que esto no va
-//            else if (Convert.ToInt32(e.KeyChar) == Convert.ToInt32(Keys.Back))
-//            {
-//            }
             // Tecla de retroceso; sin implementación.
             else if (!char.IsNumber(e.KeyChar))
             {

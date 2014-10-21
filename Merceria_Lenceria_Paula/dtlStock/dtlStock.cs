@@ -83,13 +83,9 @@ namespace dtlMerceria
             SqlDataReader reader;
 
             cmd.CommandType = CommandType.StoredProcedure;
-
             cmd.CommandText = "sp_del_item_stock";
-
             cmd.Parameters.Add("@id_codigo", SqlDbType.VarChar).Value = _Cod;
-
             cmd.Connection = conn;
-
             conn.Open();
 
             reader = cmd.ExecuteReader();

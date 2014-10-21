@@ -6,6 +6,9 @@ namespace wrlMerceria
 {
     public class wrlGenerica
     {
+        /// <summary>
+        /// Calculo de MDC5, retorna el valor encriptado
+        /// </summary>
         public string CalculateMD5Hash(string input)
         {
             // step 1, calculate MD5 hash from input
