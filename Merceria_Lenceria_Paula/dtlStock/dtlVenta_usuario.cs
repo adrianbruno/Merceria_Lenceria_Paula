@@ -7,11 +7,11 @@ using System.Configuration;
 
 namespace dtlMerceria
 {
-    public class dtlVenta
+    public class dtlVenta_usuario
     {
         public SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDB"].ConnectionString);
 
-        public void CargarDatosVentaPrevio(string _usuario)
+        public void CargarDatosVentaPrevia(string _usuario)
         {
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
@@ -53,27 +53,14 @@ namespace dtlMerceria
             */
             conn.Close();
         }
-        /// <summary>
-        /// Obtiene los ID de Stock
-        /// </summary>
-        public DataTable ListaID()
-        {
-            conn.Open();
-            using (SqlDataAdapter da = new SqlDataAdapter(
-                   "SELECT id_codigo FROM stock", conn))
-            {
-                DataTable tabla = new DataTable();
-                da.Fill(tabla);
-                return tabla;
-            }
-        }
-        public void Agregotmp(string _usuario,
-                              string _cod,
-                            string _desc,
-                            string _fab,
-                            string _cant,
-                            string _monto,
-                            string _stockAct)
+
+        public void InsertVentaTemp(string _usuario,
+                                    string _cod,
+                                    string _desc,
+                                    string _fab,
+                                    string _cant,
+                                    string _monto,
+                                    string _stockAct)
         {
             // Agrego los datos seleccionados a la tambla TEMP de venta
             SqlCommand cmd = new SqlCommand();
@@ -96,7 +83,7 @@ namespace dtlMerceria
 
             conn.Close();
         }
-        public void FinalizarTmpVenta(string _usuario)
+        public void FinalizarVentaTemp(string _usuario)
         {
             // TRUNCO la tabla temporal por venta finalizada correctamente
             SqlCommand cmd = new SqlCommand();
@@ -114,7 +101,7 @@ namespace dtlMerceria
             conn.Close();
 
         }
-        public void CerrarTmpVenta(string _usuario)
+        public void CerrarVentaTemp(string _usuario)
         {
             // ELIMINO la tabla temporal por salida del usuario
             SqlCommand cmd = new SqlCommand();
@@ -132,7 +119,7 @@ namespace dtlMerceria
             conn.Close();
 
         }
-        public Boolean Existe_Venta_Tmp(string _usuario)
+        public Boolean ExisteVentaTemp(string _usuario)
         {
             // Ver si existe una venta previa, sino crea la tabla
             SqlCommand cmd = new SqlCommand();
@@ -153,7 +140,7 @@ namespace dtlMerceria
 
             return existe;
         }
-        public void Creo_Venta_Tmp(string _usuario)
+        public void CreoVentaTemp(string _usuario)
         {
             // Ver si existe una venta previa, sino crea la tabla
             SqlCommand cmd = new SqlCommand();

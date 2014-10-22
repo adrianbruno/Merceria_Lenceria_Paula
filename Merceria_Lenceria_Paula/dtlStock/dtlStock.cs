@@ -3,8 +3,6 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
-using System.Collections.Generic;
-using System.IO;
  
 
 namespace dtlMerceria
@@ -12,9 +10,23 @@ namespace dtlMerceria
     
     public class dtlStock
     {
-        // Este valor debería obtenerse desde algún lugar fijo
+
         public SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDB"].ConnectionString);
-                    
+
+        /// <summary>
+        /// Obtiene los ID de Stock
+        /// </summary>
+        public DataTable ListaIdStock()
+        {
+            conn.Open();
+            using (SqlDataAdapter da = new SqlDataAdapter(
+                   "SELECT id_codigo FROM stock", conn))
+            {
+                DataTable tabla = new DataTable();
+                da.Fill(tabla);
+                return tabla;
+            }
+        }            
         /// <summary>
         /// Realiza el INSERT de los datos en Stock
         /// </summary>
@@ -51,7 +63,7 @@ namespace dtlMerceria
         /// <summary>
         /// Obtiene los datos de Stock, de todos los campos y todos los registros (COMPLETOS)
         /// </summary>
-        public DataTable DatosStock_Full()
+        public DataTable ObtenerStock_Full()
         {
            
            conn.Open();
@@ -67,7 +79,7 @@ namespace dtlMerceria
         /// <summary>
         /// Obtiene los datos de Stock, de los campos principales y todos los registros (COMPLETOS)
         /// </summary>
-        public DataTable DatosStock_basico()
+        public DataTable ObtenerStock_basico()
         {
             conn.Open();
             using (SqlDataAdapter da = new SqlDataAdapter(

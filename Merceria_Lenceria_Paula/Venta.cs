@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 
 using System.Data.SqlClient;
 using System.Drawing.Printing;
 using System.Security.Cryptography;
-using System.IO;
 
 using dtlMerceria;
 
@@ -158,11 +154,11 @@ namespace Merceria_Lenceria_Paula
             Cursor.Current = Cursors.WaitCursor;
 
             // Tomado desde la clase dtlMerceria
-            dtlVenta obReg = new dtlVenta();
+            dtlVenta_usuario obReg = new dtlVenta_usuario();
 
-            if (obReg.Existe_Venta_Tmp(_Usuario) == false)
+            if (obReg.ExisteVentaTemp(_Usuario) == false)
             {
-                obReg.Creo_Venta_Tmp(_Usuario);
+                obReg.CreoVentaTemp(_Usuario);
             }
 
             Cursor.Current = Cursors.Default;
@@ -174,9 +170,9 @@ namespace Merceria_Lenceria_Paula
             Cursor.Current = Cursors.WaitCursor;
 
             // Tomado desde la clase dtlMerceria
-            dtlVenta obReg = new dtlVenta();
+            dtlVenta_usuario obReg = new dtlVenta_usuario();
 
-            obReg.Agregotmp (_Usuario,Id_cod,Desc,Fabri,Cant,Monto,Stock_ac);
+            obReg.InsertVentaTemp (_Usuario,Id_cod,Desc,Fabri,Cant,Monto,Stock_ac);
 
             Cursor.Current = Cursors.Default;
 
@@ -225,9 +221,9 @@ namespace Merceria_Lenceria_Paula
             Cursor.Current = Cursors.WaitCursor;
 
             // Tomado desde la clase dtlMerceria
-            dtlVenta obReg = new dtlVenta();
+            dtlVenta_usuario obReg = new dtlVenta_usuario();
 
-            obReg.FinalizarTmpVenta(_Usuario);
+            obReg.FinalizarVentaTemp(_Usuario);
 
             Cursor.Current = Cursors.Default;
 
@@ -238,9 +234,9 @@ namespace Merceria_Lenceria_Paula
             Cursor.Current = Cursors.WaitCursor;
 
             // Tomado desde la clase dtlMerceria
-            dtlVenta obReg = new dtlVenta();
+            dtlVenta_usuario obReg = new dtlVenta_usuario();
 
-            obReg.CerrarTmpVenta(_Usuario);
+            obReg.CerrarVentaTemp(_Usuario);
 
             Cursor.Current = Cursors.Default;
         }
@@ -251,9 +247,9 @@ namespace Merceria_Lenceria_Paula
             Cursor.Current = Cursors.WaitCursor;
 
             // Tomado desde la clase dtlMerceria
-            dtlVenta obReg = new dtlVenta();
+            dtlStock obReg = new dtlStock();
 
-            cmbCodigo.DataSource = obReg.ListaID();
+            cmbCodigo.DataSource = obReg.ListaIdStock();
             
             Cursor.Current = Cursors.Default;
 

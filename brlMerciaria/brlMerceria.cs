@@ -21,7 +21,7 @@ namespace brlMerceria
       public DataTable DatosStock_basico()
       {
           dtlStock obReg = new dtlStock();
-          return obReg.DatosStock_basico();
+          return obReg.ObtenerStock_basico();
       }
 
       /// <summary>
