@@ -2,6 +2,10 @@
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
+using System.Collections.Generic;
+using System.IO;
+ 
 
 namespace dtlMerceria
 {
@@ -9,9 +13,8 @@ namespace dtlMerceria
     public class dtlStock
     {
         // Este valor debería obtenerse desde algún lugar fijo
-        public SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\v11.0;
-                                                                AttachDbFilename='C:\Merceria_DB\MerceriaLenceriaDB.mdf';
-                                                                Integrated Security=True");
+        public SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDB"].ConnectionString);
+                    
         /// <summary>
         /// Realiza el INSERT de los datos en Stock
         /// </summary>
@@ -50,7 +53,8 @@ namespace dtlMerceria
         /// </summary>
         public DataTable DatosStock_Full()
         {
-          conn.Open();
+           
+           conn.Open();
            using (SqlDataAdapter da = new SqlDataAdapter(
                   "SELECT * FROM stock", conn))
                 {

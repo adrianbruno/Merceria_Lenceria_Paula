@@ -2,16 +2,15 @@
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 
 namespace dtlMerceria
 {
     public class dtlVenta
     {
-        // Este valor debería obtenerse desde algún lugar fijo
-        public SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\v11.0;
-                                                            AttachDbFilename='C:\Merceria_DB\MerceriaLenceriaDB.mdf';
-                                                            Integrated Security=True");
+        public SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDB"].ConnectionString);
+
         public void CargarDatosVentaPrevio(string _usuario)
         {
             SqlCommand cmd = new SqlCommand();
