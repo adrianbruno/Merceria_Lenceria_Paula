@@ -56,3 +56,7 @@ C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\bin\D
 C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\bin\Debug\brlMerceria.pdb
 C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\bin\Debug\wrlMerceria.dll
 C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\bin\Debug\wrlMerceria.pdb
+D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\bin\Debug\brlMerceria.dll
+D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\bin\Debug\wrlMerceria.dll
+D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\bin\Debug\brlMerceria.pdb
+D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\bin\Debug\wrlMerceria.pdb

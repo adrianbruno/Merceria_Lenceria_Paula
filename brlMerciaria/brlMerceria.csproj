@@ -47,10 +47,9 @@
       <Project>{a78a18d8-96c6-4788-a242-d59e4306d704}</Project>
       <Name>dtlMerceria</Name>
     </ProjectReference>
-    <ProjectReference Include="..\wrlMerceria\wrlMerceria.csproj">
-      <Project>{01d54428-7a21-410d-a174-c3e95680297d}</Project>
-      <Name>wrlMerceria</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 using System.Drawing.Printing;
 using System.Security.Cryptography;
 
-using dtlMerceria;
+using wrlMerceria;
 
 namespace Merceria_Lenceria_Paula
 {
@@ -154,7 +154,7 @@ namespace Merceria_Lenceria_Paula
             Cursor.Current = Cursors.WaitCursor;
 
             // Tomado desde la clase dtlMerceria
-            dtlVenta_usuario obReg = new dtlVenta_usuario();
+            wrlGenerica obReg = new wrlGenerica();
 
             if (obReg.ExisteVentaTemp(_Usuario) == false)
             {

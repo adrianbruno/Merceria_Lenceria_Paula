@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Text;
+
 using System.Windows.Forms;
 
-using brlMerceria;
+using wrlMerceria;
 
 namespace Merceria_Lenceria_Paula
 {
@@ -21,7 +21,7 @@ namespace Merceria_Lenceria_Paula
             Cursor.Current = Cursors.WaitCursor;
             
             // Carga los datos en la grilla para poder seleccionarlos
-            brlStock obReg = new brlStock();
+            wrlGenerica obReg = new wrlGenerica();
             gvDatos.DataSource = obReg.DatosStock_basico();
 
             Cursor.Current = Cursors.Default;
@@ -33,7 +33,7 @@ namespace Merceria_Lenceria_Paula
             Cursor.Current = Cursors.WaitCursor;
             
             // Realiza el update de los datos en STOCK
-            brlStock obReg = new brlStock();
+            wrlGenerica obReg = new wrlGenerica();
             obReg.UpdateDatosStock(txtCodigo.Text,
                                    txtFabricante.Text,
                                    txtDescripcion.Text,
@@ -48,7 +48,7 @@ namespace Merceria_Lenceria_Paula
         {
             Cursor.Current = Cursors.WaitCursor;
             // Realiza el insert de los datos en STOCK
-            brlStock obReg = new brlStock();
+            wrlGenerica obReg = new wrlGenerica();
             obReg.InsertDatosStock(txtCodigo.Text,
                                    txtFabricante.Text,
                                    txtDescripcion.Text,
@@ -61,6 +61,8 @@ namespace Merceria_Lenceria_Paula
       
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            DataGridView gv = new DataGridView();
+
             // Al hacer click en un valor los muestra en los text
             txtCodigo.Text = gvDatos.CurrentRow.Cells[0].Value.ToString();
             txtFabricante.Text = gvDatos.CurrentRow.Cells[1].Value.ToString();
@@ -129,7 +131,7 @@ namespace Merceria_Lenceria_Paula
             Cursor.Current = Cursors.WaitCursor;
 
             // Realiza el borrado del registro de STOCK
-            brlStock obReg = new brlStock();
+            wrlGenerica obReg = new wrlGenerica();
             obReg.BorrarDatosStock(txtCodigo.Text);
 
             Limpiar_Controles();

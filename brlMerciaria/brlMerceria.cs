@@ -1,19 +1,29 @@
 ﻿using System;
 using System.Data;
+using System.Text;
+using System.Security.Cryptography;
 
 using dtlMerceria;
-using wrlMerceria;
-
 
 namespace brlMerceria
 {
-    public class brlStock
+    public class brlGenerica
     {
-      public string CalculateMD5Hash(string _input)
-       {
-           wrlGenerica cripto = new wrlGenerica();
-           return cripto.CalculateMD5Hash(_input);
-        }
+        public string CalculateMD5Hash(string input)
+        {
+            // step 1, calculate MD5 hash from input
+            MD5 md5 = System.Security.Cryptography.MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+            byte[] hash = md5.ComputeHash(inputBytes);
+
+            // step 2, convert byte array to hex string
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }       
 
       /// <summary>
       /// Obtiene los datos básico de STOCK
@@ -27,21 +37,21 @@ namespace brlMerceria
       /// <summary>
       /// Realiza el UPDATE de los datos en STOCK
       /// </summary>
-      public void UpdateDatosStock(string _cod, string _fab, string _desc, string _precio, string _cant)
+      public void UpdateDatosStock(string _cod, string _fab, string _desc, string _precio, string _MDC5, string _cant)
       {
           dtlStock obReg = new dtlStock();
           obReg.UpdateDatosStock(_cod,
                                  _fab,
                                  _desc,
                                  _precio,
-                                 CalculateMD5Hash(_precio + _cant),
+                                 CalculateMD5Hash(_MDC5),
                                  _cant);
       }
 
       /// <summary>
       /// Realiza el INSERT de los datos en STOCK
       /// </summary>
-      public void InsertDatosStock(string _cod, string _fab, string _desc,string _precio, string _cant)
+      public void InsertDatosStock(string _cod, string _fab, string _desc,string _precio, string _MDC5, string _cant)
       {
           dtlStock obReg = new dtlStock();
           obReg.InsertDatos(_cod,

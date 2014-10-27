@@ -8,3 +8,7 @@ D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\wrlMerceria\bin\Debug\wrlMercer
 D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\wrlMerceria\obj\Debug\wrlMerceria.csprojResolveAssemblyReference.cache
 D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\wrlMerceria\obj\Debug\wrlMerceria.dll
 D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\wrlMerceria\obj\Debug\wrlMerceria.pdb
+D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\wrlMerceria\bin\Debug\brlMerceria.dll
+D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\wrlMerceria\bin\Debug\dtlStock.dll
+D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\wrlMerceria\bin\Debug\brlMerceria.pdb
+D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\wrlMerceria\bin\Debug\dtlStock.pdb
