@@ -14,3 +14,10 @@ D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\brlMerciaria\bin\Debug\dtlStock
 D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\brlMerciaria\bin\Debug\dtlStock.pdb
 D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\brlMerciaria\obj\Debug\brlMerceria.dll
 D:\I12-Trabajos\Projects\Merceria_Lenceria_Paula\brlMerciaria\obj\Debug\brlMerceria.pdb
+D:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\bin\Debug\brlMerceria.dll
+D:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\bin\Debug\brlMerceria.pdb
+D:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\bin\Debug\dtlStock.dll
+D:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\bin\Debug\dtlStock.pdb
+D:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\obj\Debug\brlMerceria.csprojResolveAssemblyReference.cache
+D:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\obj\Debug\brlMerceria.dll
+D:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\obj\Debug\brlMerceria.pdb

@@ -2,7 +2,7 @@
 
 using System.Windows.Forms;
 
-using wrlMerceria;
+using wflMerceria;
 
 namespace Merceria_Lenceria_Paula
 {
@@ -21,7 +21,7 @@ namespace Merceria_Lenceria_Paula
             Cursor.Current = Cursors.WaitCursor;
             
             // Carga los datos en la grilla para poder seleccionarlos
-            wrlGenerica obReg = new wrlGenerica();
+            wflGenerica obReg = new wflGenerica();
             gvDatos.DataSource = obReg.DatosStock_basico();
 
             Cursor.Current = Cursors.Default;
@@ -33,7 +33,7 @@ namespace Merceria_Lenceria_Paula
             Cursor.Current = Cursors.WaitCursor;
             
             // Realiza el update de los datos en STOCK
-            wrlGenerica obReg = new wrlGenerica();
+            wflGenerica obReg = new wflGenerica();
             obReg.UpdateDatosStock(txtCodigo.Text,
                                    txtFabricante.Text,
                                    txtDescripcion.Text,
@@ -48,7 +48,7 @@ namespace Merceria_Lenceria_Paula
         {
             Cursor.Current = Cursors.WaitCursor;
             // Realiza el insert de los datos en STOCK
-            wrlGenerica obReg = new wrlGenerica();
+            wflGenerica obReg = new wflGenerica();
             obReg.InsertDatosStock(txtCodigo.Text,
                                    txtFabricante.Text,
                                    txtDescripcion.Text,
@@ -131,7 +131,7 @@ namespace Merceria_Lenceria_Paula
             Cursor.Current = Cursors.WaitCursor;
 
             // Realiza el borrado del registro de STOCK
-            wrlGenerica obReg = new wrlGenerica();
+            wflGenerica obReg = new wflGenerica();
             obReg.BorrarDatosStock(txtCodigo.Text);
 
             Limpiar_Controles();

@@ -37,11 +37,11 @@ namespace brlMerceria
       /// <summary>
       /// Realiza el UPDATE de los datos en STOCK
       /// </summary>
-      public void UpdateDatosStock(string _cod, string _fab, string _desc, string _precio, string _MDC5, string _cant)
+      public void UpdateDatosStock(string _cod, int _id_fab, string _desc, string _precio, string _MDC5, string _cant)
       {
           dtlStock obReg = new dtlStock();
           obReg.UpdateDatosStock(_cod,
-                                 _fab,
+                                 _id_fab,
                                  _desc,
                                  _precio,
                                  CalculateMD5Hash(_MDC5),
@@ -51,11 +51,11 @@ namespace brlMerceria
       /// <summary>
       /// Realiza el INSERT de los datos en STOCK
       /// </summary>
-      public void InsertDatosStock(string _cod, string _fab, string _desc,string _precio, string _MDC5, string _cant)
+      public void InsertDatosStock(string _cod, int _id_fab, string _desc,string _precio, string _MDC5, string _cant)
       {
           dtlStock obReg = new dtlStock();
           obReg.InsertDatos(_cod,
-                            _fab,
+                            _id_fab,
                             _desc,
                             _precio,
                             CalculateMD5Hash(_precio + _cant),

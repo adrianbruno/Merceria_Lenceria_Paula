@@ -13,3 +13,8 @@ C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\dtlSt
 C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\dtlStock\bin\Debug\dtlStock.dll
 C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\dtlStock\bin\Debug\dtlStock.pdb
 C:\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\dtlStock\obj\Debug\dtlStock.pdb
+D:\Caty\Git\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\dtlStock\bin\Debug\dtlStock.dll
+D:\Caty\Git\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\dtlStock\bin\Debug\dtlStock.pdb
+D:\Caty\Git\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\dtlStock\obj\Debug\dtlMerceria.csprojResolveAssemblyReference.cache
+D:\Caty\Git\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\dtlStock\obj\Debug\dtlStock.dll
+D:\Caty\Git\Merceria_Lenceria_Paula\Merceria_Lenceria_Paula\dtlStock\obj\Debug\dtlStock.pdb

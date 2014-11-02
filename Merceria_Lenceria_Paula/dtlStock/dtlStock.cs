@@ -31,7 +31,7 @@ namespace dtlMerceria
         /// Realiza el INSERT de los datos en Stock
         /// </summary>
         public void InsertDatos(string _Cod, 
-                                string _Fab,
+                                int _id_fab,
                                 string _Desc,
                                 string _Precio,
                                 string _hash_precio,
@@ -45,7 +45,7 @@ namespace dtlMerceria
 
                 cmd.CommandText = "sp_ins_item_stock";
                 cmd.Parameters.Add("@id_cod", SqlDbType.VarChar).Value = _Cod;
-                cmd.Parameters.Add("@fabricante", SqlDbType.VarChar).Value = _Fab;
+                cmd.Parameters.Add("@id_fabricante", SqlDbType.Int).Value = _id_fab;
                 cmd.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = _Desc;
                 cmd.Parameters.Add("@precio", SqlDbType.Decimal).Value = _Precio;
                 cmd.Parameters.Add("@cant_actual", SqlDbType.Int).Value = _Cant_Actual;
@@ -78,6 +78,7 @@ namespace dtlMerceria
 
         /// <summary>
         /// Obtiene los datos de Stock, de los campos principales y todos los registros (COMPLETOS)
+        /// PASAR A STORED PROCEDURE (Para cumplir con los basicos Insert, Select, Update, Delete segun el Ejemplo de Capas)
         /// </summary>
         public DataTable ObtenerStock_basico()
         {
@@ -114,7 +115,7 @@ namespace dtlMerceria
         /// Realiza el UPDATE de la tabla STOCK
         /// </summary>
         public void UpdateDatosStock(string _Cod, 
-                                string _Fab,
+                                int _id_fab,
                                 string _Desc,
                                 string _Precio,
                                 string _hash_precio,
@@ -128,7 +129,7 @@ namespace dtlMerceria
          cmd.CommandText = "sp_upd_item_stock";
 
          cmd.Parameters.Add("@id_cod", SqlDbType.VarChar).Value = _Cod;
-         cmd.Parameters.Add("@fabricante", SqlDbType.VarChar).Value = _Fab;
+         cmd.Parameters.Add("@id_fabricante", SqlDbType.Int).Value = _id_fab;
          cmd.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = _Desc;
          cmd.Parameters.Add("@precio", SqlDbType.Decimal).Value = _Precio;
          cmd.Parameters.Add("@cant_actual", SqlDbType.Int).Value = _Cant_Actual;

@@ -11,6 +11,8 @@ using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.IO;
 using System.Net;
+using System.Configuration;
+using System.Collections.Specialized;
 
 
 namespace Merceria_Lenceria_Paula
@@ -353,9 +355,8 @@ namespace Merceria_Lenceria_Paula
 
         }
         // Conexion a la BD
-        SqlConnection sqlConnection1 = new SqlConnection(@"Data Source=(LocalDB)\v11.0;
-                                                                AttachDbFilename='C:\Merceria_DB\MerceriaLenceriaDB.mdf';
-                                                                Integrated Security=True");
+        SqlConnection sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDB"].ConnectionString);
+        
         public string CalculateMD5Hash(string input)
         {
             // step 1, calculate MD5 hash from input
