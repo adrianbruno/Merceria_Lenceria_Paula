@@ -14,13 +14,13 @@ using System.Configuration;
 
 namespace dtlMerceria
 {
-    class dtlFabricante
+    public class dtlFabricante
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDB"].ConnectionString);
 
         /// <summary>
         /// RECUPERA un registro según el id proporcionado, tabla fabricantes
-        /// </summary>
+        /// </summary>   
         public DataTable ObtenerFabricante(int id_fabricante)
         {
             using (conn)
@@ -53,7 +53,6 @@ namespace dtlMerceria
         /// <summary>
         /// INSERTA un registro a la tabla fabricante
         /// </summary>
-
         public void InsertaFabricante(int id_fabricante, string descripcion)
         {
             using (conn)
@@ -99,6 +98,35 @@ namespace dtlMerceria
                     Console.WriteLine(ex.Message);
                 }
             }
+        }
+
+        public DataTable ObtListFab()
+        {
+            using (conn)
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+
+                try
+                {
+                    conn.Open();
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "sp_list_fabricantes";
+                     
+                    DataTable tabla = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter();
+                     
+                    return tabla;
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return null;
+                }
+            }
+
         }
     }
 }

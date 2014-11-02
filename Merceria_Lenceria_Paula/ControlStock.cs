@@ -64,11 +64,11 @@ namespace Merceria_Lenceria_Paula
             DataGridView gv = new DataGridView();
 
             // Al hacer click en un valor los muestra en los text
-            txtCodigo.Text = gvDatos.CurrentRow.Cells[0].Value.ToString();
-            txtFabricante.Text = gvDatos.CurrentRow.Cells[1].Value.ToString();
-            txtDescripcion.Text = gvDatos.CurrentRow.Cells[2].Value.ToString();
-            txtPrecio.Text = gvDatos.CurrentRow.Cells[3].Value.ToString();
-            txtCantidad.Text = gvDatos.CurrentRow.Cells[4].Value.ToString();
+            txtCodigo.Text = gvDatos.CurrentRow.Cells[1].Value.ToString();
+            txtFabricante.Text = gvDatos.CurrentRow.Cells[2].Value.ToString();
+            txtDescripcion.Text = gvDatos.CurrentRow.Cells[3].Value.ToString();
+            txtPrecio.Text = gvDatos.CurrentRow.Cells[4].Value.ToString();
+            txtCantidad.Text = gvDatos.CurrentRow.Cells[5].Value.ToString();
             btnBorrar.Enabled = true;
         }
 
@@ -123,7 +123,7 @@ namespace Merceria_Lenceria_Paula
             {
                 txtPrecio.Text = String.Format("{0:0.00}", Convert.ToDecimal(txtPrecio.Text));
             }
-            btnGuardar.Enabled = Todo_OK();
+            //btnGuardar.Enabled = Todo_OK();
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -143,22 +143,22 @@ namespace Merceria_Lenceria_Paula
 
         private void txtCodigo_Leave(object sender, EventArgs e)
         {
-            btnGuardar.Enabled = Todo_OK();
+            //btnGuardar.Enabled = Todo_OK();
         }
 
         private void txtFabricante_Leave(object sender, EventArgs e)
         {
-            btnGuardar.Enabled = Todo_OK();
+            //btnGuardar.Enabled = Todo_OK();
         }
 
         private void txtDescripcion_Leave(object sender, EventArgs e)
         {
-            btnGuardar.Enabled = Todo_OK();
+            //btnGuardar.Enabled = Todo_OK();
         }
 
         private void txtCantidad_Leave(object sender, EventArgs e)
         {
-            btnGuardar.Enabled = Todo_OK();
+            //btnGuardar.Enabled = Todo_OK();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -166,6 +166,7 @@ namespace Merceria_Lenceria_Paula
             if (!txtCodigo.Enabled)
             {
                 // Si boton NUEVO no está habilitado es un UPDATE
+                
                 UpdateDatos();
                 Limpiar_Controles();
                 CargarDatos();

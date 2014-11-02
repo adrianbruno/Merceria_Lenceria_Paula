@@ -11,3 +11,7 @@ GO
 
 EXEC sp_rename 'provincias.Descripcion', 'descripcion', 'COLUMN';
 GO
+
+ALTER TABLE dbo.provincias 
+ADD CONSTRAINT PK_id_provincias PRIMARY KEY CLUSTERED (id);
+GO

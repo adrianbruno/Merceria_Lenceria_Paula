@@ -11,3 +11,7 @@ GO
 
 EXEC sp_rename 'acciones.Descripcion', 'descripcion', 'COLUMN';
 GO
+
+ALTER TABLE dbo.acciones 
+ADD CONSTRAINT PK_id_acciones PRIMARY KEY CLUSTERED (id);
+GO

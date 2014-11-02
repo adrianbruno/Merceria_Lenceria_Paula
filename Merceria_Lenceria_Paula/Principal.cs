@@ -110,6 +110,7 @@ namespace Merceria_Lenceria_Paula
                 btnClientes.Enabled = false;
                 btnMantenimiento.Enabled = false;
                 btnFacturar.Enabled = true;
+                
             }
             if (Nivel_Acceso == 3)
             {
@@ -120,6 +121,7 @@ namespace Merceria_Lenceria_Paula
                 btnUsuarios.Enabled = false;
                 btnClientes.Enabled = true;
                 btnMantenimiento.Enabled = true;
+                btnFab.Enabled = true;
             }
             if (Nivel_Acceso == 7)
             {
@@ -130,6 +132,7 @@ namespace Merceria_Lenceria_Paula
                 btnUsuarios.Enabled = true;
                 btnClientes.Enabled = true;
                 btnMantenimiento.Enabled = true;
+                btnFab.Enabled = true;
             }
             
             btnCambiarContraseña.Enabled = true;
@@ -189,7 +192,7 @@ namespace Merceria_Lenceria_Paula
             {
                     reader.Read();
 
-                    if (Convert.ToInt16(reader.GetSqlValue(5).ToString()) == 0) 
+                    if (Convert.ToInt16(reader.GetSqlValue(6).ToString()) == 0) 
                     {
                         // Cuenta bloqueada
                         reader.Close();
@@ -198,12 +201,12 @@ namespace Merceria_Lenceria_Paula
                         return 3;
                     }
 
-                    if (pass == reader.GetSqlValue(1).ToString())
+                    if (pass == reader.GetSqlValue(2).ToString())
                     {
                         // Todo BIEN, Password CORRECTA
-                        //0=login,1=Pass,2=Nombre,3=Apellido,4=Nivel  
-                        _Usuario = reader.GetSqlValue(0).ToString();
-                        _Nivel = reader.GetInt32(4);
+                        //0=login,1=Pass,2=nombre,3=apellido,4=Nivel  
+                        _Usuario = reader.GetSqlValue(1).ToString();
+                        _Nivel = reader.GetInt32(5);
 
                         reader.Close();
                         // Coloco el valor de intentos fallidos a CERO para resetear la cuenta del usuario
@@ -263,7 +266,7 @@ namespace Merceria_Lenceria_Paula
             reader = cmd.ExecuteReader();
             reader.Read();
 
-            if (Convert.ToInt16(reader.GetSqlValue(0).ToString()) >= 5)
+            if (Convert.ToInt16(reader.GetSqlValue(1).ToString()) >= 5)
             {
                 reader.Close();
                 cmd.CommandText = "update usuarios set cuenta_activa=0 where login = '" + usr + "'";
@@ -283,7 +286,7 @@ namespace Merceria_Lenceria_Paula
             Cursor.Current = Cursors.WaitCursor;
 
             SqlCommand cmd = new SqlCommand();
-            SqlDataReader reader;
+            //SqlDataReader reader;
 
             /*
              * CREATE SYMMETRIC KEY SYM_KEY WITH ALGORITHM = TRIPLE_DES ENCRYPTION BY PASSWORD ='ClaveUltraCompleta'
@@ -297,8 +300,8 @@ namespace Merceria_Lenceria_Paula
              * CLOSE SYMMETRIC KEY SYM_KEY
              */
 
-            DateTime saveNow = DateTime.Now;
-        cmd.CommandText = "DECLARE @KEYID UNIQUEIDENTIFIER SET @KEYID = KEY_GUID('SYM_KEY') " +
+           /* DateTime saveNow = DateTime.Now;
+            cmd.CommandText = "DECLARE @KEYID UNIQUEIDENTIFIER SET @KEYID = KEY_GUID('SYM_KEY') " +
                               "OPEN SYMMETRIC KEY SYM_KEY DECRYPTION BY PASSWORD='" + key + "'" +
                               "INSERT log_acceso_usuario VALUES (ENCRYPTBYKEY(@KEYID,'" + usr + "'),'" +
                               saveNow.Year + "/" +
@@ -310,6 +313,7 @@ namespace Merceria_Lenceria_Paula
                               accion + ",'" +
                               GetIp() + "') " +
                               "CLOSE SYMMETRIC KEY SYM_KEY";
+            
             cmd.CommandType = CommandType.Text;
             cmd.Connection = sqlConnection1;
 
@@ -320,7 +324,7 @@ namespace Merceria_Lenceria_Paula
             Cursor.Current = Cursors.Default;
             reader.Close();
             sqlConnection1.Close();
-            
+            */
         }
         private void logIntentoFallido(string usr, string pass, int accion)
         {
@@ -329,9 +333,9 @@ namespace Merceria_Lenceria_Paula
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
 
-            // [Id],[login],[password],[fecha_accion],[accion_tipo],[ip_pc]
+            // [id],[login],[password],[fecha_accion],[accion_tipo],[ip_pc]
             DateTime saveNow = DateTime.Now;
-            cmd.CommandText = "insert log_acceso_fallido values ('" + usr + 
+            cmd.CommandText = "INSERT log_accesos_fallidos (login, password, fecha_accion, accion_tipo, ip_pc) VALUES ('" + usr + 
                 "','" + pass + "','" +
                 saveNow.Year + "/" +
                 saveNow.Month + "/" +
@@ -530,6 +534,13 @@ namespace Merceria_Lenceria_Paula
             if (frm._Nueva_Pass == null) goto inicio;
             
             if (frm._Nueva_Pass != "cancela")  CambioPassUsuario(_Usuario, frm._Nueva_Pass.Trim());
+        }
+
+        private void btnFab_Click(object sender, EventArgs e)
+        {
+            frmFabricante frmFab = new frmFabricante();
+            frmFab.ShowDialog();
+
         }
     }
 }

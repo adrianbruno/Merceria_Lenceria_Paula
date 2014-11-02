@@ -11,3 +11,7 @@ GO
 
 EXEC sp_rename 'log_accesos_usuarios.Id', 'id', 'COLUMN';
 GO
+
+ALTER TABLE dbo.log_accesos_usuarios 
+ADD CONSTRAINT PK_id_log_accesos_usuarios PRIMARY KEY CLUSTERED (id);
+GO

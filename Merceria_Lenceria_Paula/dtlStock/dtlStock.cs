@@ -84,7 +84,7 @@ namespace dtlMerceria
         {
             conn.Open();
             using (SqlDataAdapter da = new SqlDataAdapter(
-                   "SELECT id_codigo, fabricante, descripcion, precio, cant_actual FROM stock", conn))
+                   "SELECT id_codigo, id_fabricante, descripcion, precio, cant_actual FROM stock", conn))
             {
                 DataTable tabla = new DataTable();
                 da.Fill(tabla);
