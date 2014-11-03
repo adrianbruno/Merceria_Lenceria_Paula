@@ -1,0 +1,6 @@
+<add name="MerceriaDB"
+            connectionString="Data Source=USUARIO-PC\SQLEXPRESS;Initial Catalog=MerceriaDB;Persist Security Info=True;User ID=sa;Password=asdf1234"
+            providerName="System.Data.SqlClient" />
+    </connectionStrings>
+
+cambiar el punto por el nombre de la pc, y agregar password en caso de ser necesario.
