@@ -48,6 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCambiarContraseña = new System.Windows.Forms.Button();
+            this.btnFab = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +56,7 @@
             // btnLoginLogout
             // 
             this.btnLoginLogout.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnLoginLogout.Font = new System.Drawing.Font("News706 BT", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoginLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoginLogout.Location = new System.Drawing.Point(539, 155);
             this.btnLoginLogout.Name = "btnLoginLogout";
             this.btnLoginLogout.Size = new System.Drawing.Size(362, 131);
@@ -71,7 +72,7 @@
             this.btnControl_Stock.Enabled = false;
             this.btnControl_Stock.FlatAppearance.BorderColor = System.Drawing.Color.Fuchsia;
             this.btnControl_Stock.FlatAppearance.BorderSize = 3;
-            this.btnControl_Stock.Font = new System.Drawing.Font("News706 BT", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnControl_Stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnControl_Stock.Image = ((System.Drawing.Image)(resources.GetObject("btnControl_Stock.Image")));
             this.btnControl_Stock.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnControl_Stock.Location = new System.Drawing.Point(261, 12);
@@ -89,7 +90,7 @@
             this.btnFacturar.Enabled = false;
             this.btnFacturar.FlatAppearance.BorderColor = System.Drawing.Color.Fuchsia;
             this.btnFacturar.FlatAppearance.BorderSize = 3;
-            this.btnFacturar.Font = new System.Drawing.Font("News706 BT", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFacturar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFacturar.Image = ((System.Drawing.Image)(resources.GetObject("btnFacturar.Image")));
             this.btnFacturar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFacturar.Location = new System.Drawing.Point(17, 12);
@@ -119,7 +120,7 @@
             this.btnUsuarios.Enabled = false;
             this.btnUsuarios.FlatAppearance.BorderColor = System.Drawing.Color.Fuchsia;
             this.btnUsuarios.FlatAppearance.BorderSize = 3;
-            this.btnUsuarios.Font = new System.Drawing.Font("News706 BT", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
             this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUsuarios.Location = new System.Drawing.Point(261, 102);
@@ -137,7 +138,7 @@
             this.btnProveedores.Enabled = false;
             this.btnProveedores.FlatAppearance.BorderColor = System.Drawing.Color.Fuchsia;
             this.btnProveedores.FlatAppearance.BorderSize = 3;
-            this.btnProveedores.Font = new System.Drawing.Font("News706 BT", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProveedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProveedores.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedores.Image")));
             this.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProveedores.Location = new System.Drawing.Point(17, 102);
@@ -155,7 +156,7 @@
             this.btnMantenimiento.Enabled = false;
             this.btnMantenimiento.FlatAppearance.BorderColor = System.Drawing.Color.Fuchsia;
             this.btnMantenimiento.FlatAppearance.BorderSize = 3;
-            this.btnMantenimiento.Font = new System.Drawing.Font("News706 BT", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMantenimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMantenimiento.Image = ((System.Drawing.Image)(resources.GetObject("btnMantenimiento.Image")));
             this.btnMantenimiento.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMantenimiento.Location = new System.Drawing.Point(261, 192);
@@ -173,7 +174,7 @@
             this.btnClientes.Enabled = false;
             this.btnClientes.FlatAppearance.BorderColor = System.Drawing.Color.Fuchsia;
             this.btnClientes.FlatAppearance.BorderSize = 3;
-            this.btnClientes.Font = new System.Drawing.Font("News706 BT", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnClientes.Image")));
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClientes.Location = new System.Drawing.Point(17, 192);
@@ -189,13 +190,13 @@
             this.lblStatus.AutoSize = true;
             this.lblStatus.Location = new System.Drawing.Point(-4, 511);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(264, 24);
+            this.lblStatus.Size = new System.Drawing.Size(269, 25);
             this.lblStatus.TabIndex = 9;
             this.lblStatus.Text = "Chequeando Intregridad ...";
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Font = new System.Drawing.Font("News706 BT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tooUsuario,
             this.tooNivelAcceso,
@@ -247,14 +248,14 @@
             // 
             this.txtUsuario.Location = new System.Drawing.Point(539, 36);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(357, 31);
+            this.txtUsuario.Size = new System.Drawing.Size(357, 30);
             this.txtUsuario.TabIndex = 7;
             // 
             // txtContraseña
             // 
             this.txtContraseña.Location = new System.Drawing.Point(539, 99);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(357, 31);
+            this.txtContraseña.Size = new System.Drawing.Size(357, 30);
             this.txtContraseña.TabIndex = 8;
             this.txtContraseña.UseSystemPasswordChar = true;
             // 
@@ -263,7 +264,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(535, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 24);
+            this.label1.Size = new System.Drawing.Size(86, 25);
             this.label1.TabIndex = 13;
             this.label1.Text = "Usuario";
             // 
@@ -272,7 +273,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(535, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 24);
+            this.label2.Size = new System.Drawing.Size(124, 25);
             this.label2.TabIndex = 14;
             this.label2.Text = "Contraseña";
             // 
@@ -282,7 +283,7 @@
             this.btnCambiarContraseña.Enabled = false;
             this.btnCambiarContraseña.FlatAppearance.BorderColor = System.Drawing.Color.Fuchsia;
             this.btnCambiarContraseña.FlatAppearance.BorderSize = 3;
-            this.btnCambiarContraseña.Font = new System.Drawing.Font("News706 BT", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCambiarContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCambiarContraseña.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCambiarContraseña.Location = new System.Drawing.Point(17, 433);
             this.btnCambiarContraseña.Name = "btnCambiarContraseña";
@@ -293,6 +294,27 @@
             this.btnCambiarContraseña.UseVisualStyleBackColor = true;
             this.btnCambiarContraseña.Click += new System.EventHandler(this.btnCambiarContraseña_Click);
             // 
+            // btnFab
+            // 
+            this.btnFab.AccessibleDescription = "Ingreso al menu para editar Proveedores";
+            this.btnFab.AccessibleName = "Boton Fabricantes";
+            this.btnFab.BackColor = System.Drawing.SystemColors.Control;
+            this.btnFab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnFab.Enabled = false;
+            this.btnFab.FlatAppearance.BorderColor = System.Drawing.Color.Fuchsia;
+            this.btnFab.FlatAppearance.BorderSize = 3;
+            this.btnFab.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFab.Image = ((System.Drawing.Image)(resources.GetObject("btnFab.Image")));
+            this.btnFab.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFab.Location = new System.Drawing.Point(17, 282);
+            this.btnFab.Name = "btnFab";
+            this.btnFab.Size = new System.Drawing.Size(221, 68);
+            this.btnFab.TabIndex = 16;
+            this.btnFab.Text = "&Fabricantes";
+            this.btnFab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFab.UseVisualStyleBackColor = false;
+            this.btnFab.Click += new System.EventHandler(this.btnFab_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -300,6 +322,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CancelButton = this.btnLoginLogout;
             this.ClientSize = new System.Drawing.Size(908, 562);
+            this.Controls.Add(this.btnFab);
             this.Controls.Add(this.btnCambiarContraseña);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -315,7 +338,7 @@
             this.Controls.Add(this.btnFacturar);
             this.Controls.Add(this.btnLoginLogout);
             this.Controls.Add(this.pictureBox1);
-            this.Font = new System.Drawing.Font("News706 BT", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPrincipal";
@@ -352,6 +375,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCambiarContraseña;
+        private System.Windows.Forms.Button btnFab;
     }
 }
 

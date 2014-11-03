@@ -47,9 +47,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
@@ -62,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABMFabricante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMFabricante.Designer.cs">
+      <DependentUpon>ABMFabricante.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABMUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +93,11 @@
     </Compile>
     <Compile Include="Component1.Designer.cs">
       <DependentUpon>Component1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dsFab.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFab.xsd</DependentUpon>
     </Compile>
     <Compile Include="Mantenimiento.cs">
       <SubType>Form</SubType>
@@ -118,6 +131,9 @@
     <Compile Include="ControlStock.Designer.cs">
       <DependentUpon>ControlStock.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ABMFabricante.resx">
+      <DependentUpon>ABMFabricante.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABMUsuarios.resx">
       <DependentUpon>ABMUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +168,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="dsFab.xsc">
+      <DependentUpon>dsFab.xsd</DependentUpon>
+    </None>
+    <None Include="dsFab.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFab.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsFab.xss">
+      <DependentUpon>dsFab.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -187,9 +215,12 @@
     <None Include="Resources\contraseña.gif" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\wrlMerceria\wrlMerceria.csproj">
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\wflMerceria\wflMerceria.csproj">
       <Project>{01d54428-7a21-410d-a174-c3e95680297d}</Project>
-      <Name>wrlMerceria</Name>
+      <Name>wflMerceria</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

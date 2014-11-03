@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "brlMerceria", "..\brlMercia
 		{A78A18D8-96C6-4788-A242-D59E4306D704} = {A78A18D8-96C6-4788-A242-D59E4306D704}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wrlMerceria", "..\wrlMerceria\wrlMerceria.csproj", "{01D54428-7A21-410D-A174-C3E95680297D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wflMerceria", "..\wflMerceria\wflMerceria.csproj", "{01D54428-7A21-410D-A174-C3E95680297D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

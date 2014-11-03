@@ -7,10 +7,11 @@ using System.Windows.Forms;
 using System.Globalization;
 
 using System.Data.SqlClient;
+using System.Configuration;
 using System.Drawing.Printing;
 using System.Security.Cryptography;
 
-using wrlMerceria;
+using wflMerceria;
 
 namespace Merceria_Lenceria_Paula
 {
@@ -37,9 +38,8 @@ namespace Merceria_Lenceria_Paula
 
 
         // Conexion a la BD
-        SqlConnection sqlConnection1 = new SqlConnection(@"Data Source=(LocalDB)\v11.0;
-                                                                AttachDbFilename='C:\Merceria_DB\MerceriaLenceriaDB.mdf';
-                                                                Integrated Security=True");
+        SqlConnection sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDB"].ConnectionString);
+
         PrintDocument doc = new PrintDocument(); /*creas e instancias el objeto, imaginatelo como si fuera una hoja a imprimir.*/
 
 
@@ -149,18 +149,20 @@ namespace Merceria_Lenceria_Paula
         }
             
 
+        
         void ExistetmpVenta()
         {
             Cursor.Current = Cursors.WaitCursor;
 
             // Tomado desde la clase dtlMerceria
-            wrlGenerica obReg = new wrlGenerica();
+
+            wflGenerica obReg = new wflGenerica();
 
             if (obReg.ExisteVentaTemp(_Usuario) == false)
             {
                 obReg.CreoVentaTemp(_Usuario);
             }
-
+            
             Cursor.Current = Cursors.Default;
 
         }
@@ -169,15 +171,15 @@ namespace Merceria_Lenceria_Paula
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            // Tomado desde la clase dtlMerceria
-            dtlVenta_usuario obReg = new dtlVenta_usuario();
+            // Tomado desde la clase dtlMerceria (NO CORRESPONDE, SOLO SE INSTANCIAN WFL's)
+            //dtlVenta_usuario obReg = new dtlVenta_usuario();
 
-            obReg.InsertVentaTemp (_Usuario,Id_cod,Desc,Fabri,Cant,Monto,Stock_ac);
+            //obReg.InsertVentaTemp (_Usuario,Id_cod,Desc,Fabri,Cant,Monto,Stock_ac);
 
             Cursor.Current = Cursors.Default;
 
         }
-
+        
         public void UpdateDatos()
         {
             // Una vez que la venta se concreta acrtualizo STOCK
@@ -220,10 +222,10 @@ namespace Merceria_Lenceria_Paula
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            // Tomado desde la clase dtlMerceria
-            dtlVenta_usuario obReg = new dtlVenta_usuario();
+            // Tomado desde la clase dtlMerceria (NO CORRESPONDE, SOLO SE INSTANCIAN WFL's)
+            //dtlVenta_usuario obReg = new dtlVenta_usuario();
 
-            obReg.FinalizarVentaTemp(_Usuario);
+            //obReg.FinalizarVentaTemp(_Usuario);
 
             Cursor.Current = Cursors.Default;
 
@@ -233,10 +235,10 @@ namespace Merceria_Lenceria_Paula
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            // Tomado desde la clase dtlMerceria
-            dtlVenta_usuario obReg = new dtlVenta_usuario();
+            // Tomado desde la clase dtlMerceria (NO CORRESPONDE, SOLO SE INSTANCIAN WFL's)
+            //dtlVenta_usuario obReg = new dtlVenta_usuario();
 
-            obReg.CerrarVentaTemp(_Usuario);
+            //obReg.CerrarVentaTemp(_Usuario);
 
             Cursor.Current = Cursors.Default;
         }
@@ -246,10 +248,10 @@ namespace Merceria_Lenceria_Paula
 
             Cursor.Current = Cursors.WaitCursor;
 
-            // Tomado desde la clase dtlMerceria
-            dtlStock obReg = new dtlStock();
+            // Tomado desde la clase dtlMerceria (NO CORRESPONDE, SOLO SE INSTANCIAN WFL's)
+            //dtlStock obReg = new dtlStock();
 
-            cmbCodigo.DataSource = obReg.ListaIdStock();
+            //cmbCodigo.DataSource = obReg.ListaIdStock();
             
             Cursor.Current = Cursors.Default;
 
@@ -386,6 +388,7 @@ namespace Merceria_Lenceria_Paula
             // Limpia la grilla
             dg.Rows.Clear();
         }
-
+        
     }
+        
 }
