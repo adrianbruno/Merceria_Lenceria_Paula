@@ -76,11 +76,39 @@ namespace dtlMerceria
                }
         }
 
+         public DataTable ObtenerStock_basico()
+         {
+             using (conn)
+             {
+                 SqlCommand cmd = new SqlCommand();
+                 cmd.Connection = conn;
+                 DataTable dt = new DataTable();
+          
+                 try
+                 {
+                     conn.Open();
+                     cmd.CommandType = CommandType.StoredProcedure;
+                     cmd.CommandText = "sp_sel_stock_basico";
+                     SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                     da.Fill(dt);                    
+                     return dt;
+                 }
+                 catch (Exception ex)
+                 {
+                     Console.WriteLine(ex.Message);
+                     return null;
+                 }   
+                 
+             }
+         }
+
+
         /// <summary>
         /// Obtiene los datos de Stock, de los campos principales y todos los registros (COMPLETOS)
-        /// PASAR A STORED PROCEDURE (Para cumplir con los basicos Insert, Select, Update, Delete segun el Ejemplo de Capas)
+        /// FUNCIONA - SE PASO A STORED PROCEDURE (Para cumplir con los basicos Insert, Select, Update, Delete segun el Ejemplo de Capas)
         /// </summary>
-        public DataTable ObtenerStock_basico()
+     /*   public DataTable ObtenerStock_basico()
         {
             conn.Open();
             using (SqlDataAdapter da = new SqlDataAdapter(
@@ -91,6 +119,8 @@ namespace dtlMerceria
                 return tabla;
             }
         }
+      */   
+    
         /// <summary>
         /// BORRA el registro indicado de la tabla STOCK
         /// </summary>
@@ -142,5 +172,41 @@ namespace dtlMerceria
 
         conn.Close();
         }
+
+        public DataTable CargaCombo() 
+        {
+            using (conn) {
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+
+                try
+                {
+                    conn.Open();
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "sp_list_fabricantes";
+                    DataSet ds = new DataSet();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return null;
+                }
+            
+            
+            }
+
+
+
+        }
+
+
     }
 }

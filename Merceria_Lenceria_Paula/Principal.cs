@@ -286,9 +286,10 @@ namespace Merceria_Lenceria_Paula
             Cursor.Current = Cursors.WaitCursor;
 
             SqlCommand cmd = new SqlCommand();
-            //SqlDataReader reader;
-
             /*
+             *LO ANULO PARA NO ROMPERME LA CABEZA NO MAS.  
+             *SqlDataReader reader;
+             *
              * CREATE SYMMETRIC KEY SYM_KEY WITH ALGORITHM = TRIPLE_DES ENCRYPTION BY PASSWORD ='ClaveUltraCompleta'
              * 
              * DROP SYMMETRIC KEY SYM_KEY

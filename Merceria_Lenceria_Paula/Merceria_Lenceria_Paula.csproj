@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABMFabricante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMFabricante.Designer.cs">
+      <DependentUpon>ABMFabricante.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABMUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,11 +94,10 @@
     <Compile Include="Component1.Designer.cs">
       <DependentUpon>Component1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="dsFab.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFab.xsd</DependentUpon>
     </Compile>
     <Compile Include="Mantenimiento.cs">
       <SubType>Form</SubType>
@@ -126,6 +131,9 @@
     <Compile Include="ControlStock.Designer.cs">
       <DependentUpon>ControlStock.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ABMFabricante.resx">
+      <DependentUpon>ABMFabricante.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABMUsuarios.resx">
       <DependentUpon>ABMUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,9 +145,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlStock.resx">
       <DependentUpon>ControlStock.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimiento.resx">
       <DependentUpon>Mantenimiento.cs</DependentUpon>
@@ -164,6 +169,17 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ClassDiagram1.cd" />
+    <None Include="dsFab.xsc">
+      <DependentUpon>dsFab.xsd</DependentUpon>
+    </None>
+    <None Include="dsFab.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFab.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsFab.xss">
+      <DependentUpon>dsFab.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

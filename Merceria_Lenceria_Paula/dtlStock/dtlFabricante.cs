@@ -1,16 +1,14 @@
-﻿/*
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-*/
-
-using System;
-using System.Text;
-using System.Data.SqlClient;
+using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Configuration;
+using System.Windows.Forms;
 
 namespace dtlMerceria
 {
@@ -113,12 +111,11 @@ namespace dtlMerceria
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "sp_list_fabricantes";
-                     
-                    DataTable tabla = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter();
-                     
-                    return tabla;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
 
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);                    
+                    return dt;
                 }
                 catch (Exception ex)
                 {
@@ -127,6 +124,42 @@ namespace dtlMerceria
                 }
             }
 
+        }
+
+        public int desc2id(string _Desc)
+        {
+            using (conn)
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+
+                try
+                {
+                    conn.Open();
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "sp_sel_desc2id_Fab";
+                    cmd.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = _Desc;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        int id = Int32.Parse(row[0].ToString());
+                        return id;
+                    }
+                    return 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    MessageBox.Show("No se ejecuto la consulta", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
+                    return 0;
+                }
+            }
         }
     }
 }

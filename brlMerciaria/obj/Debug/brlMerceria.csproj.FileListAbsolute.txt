@@ -21,3 +21,10 @@ D:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\bin\Debug\dtlStock.pdb
 D:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\obj\Debug\brlMerceria.csprojResolveAssemblyReference.cache
 D:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\obj\Debug\brlMerceria.dll
 D:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\obj\Debug\brlMerceria.pdb
+C:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\bin\Debug\brlMerceria.dll
+C:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\bin\Debug\brlMerceria.pdb
+C:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\bin\Debug\dtlStock.dll
+C:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\bin\Debug\dtlStock.pdb
+C:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\obj\Debug\brlMerceria.csprojResolveAssemblyReference.cache
+C:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\obj\Debug\brlMerceria.dll
+C:\Caty\Git\Merceria_Lenceria_Paula\brlMerciaria\obj\Debug\brlMerceria.pdb

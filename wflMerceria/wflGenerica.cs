@@ -16,12 +16,11 @@ namespace wflMerceria
             brlGenerica obReg = new brlGenerica();
             return obReg.DatosStock_basico();
         }
-        public void UpdateDatosStock(string _cod, string _id_fabricante, string _desc, string _precio, string _cant)
+        public void UpdateDatosStock(string _cod, int _id_fab, string _desc, string _precio, string _cant)
         {
 
             brlGenerica obReg = new brlGenerica();
-            int _id_fab = Int32.Parse(_id_fabricante);
-
+            
             obReg.UpdateDatosStock(_cod,
                                    _id_fab,
                                    _desc,
@@ -32,10 +31,9 @@ namespace wflMerceria
         /// <summary>
         /// Realiza el INSERT de los datos en STOCK
         /// </summary>
-        public void InsertDatosStock(string _cod, string _id_fabricante, string _desc, string _precio, string _cant)
+        public void InsertDatosStock(string _cod, int _id_fab, string _desc, string _precio, string _cant)
         {
             brlGenerica obReg = new brlGenerica();
-            int _id_fab = Int32.Parse(_id_fabricante);
 
             obReg.InsertDatosStock(_cod,
                               _id_fab,

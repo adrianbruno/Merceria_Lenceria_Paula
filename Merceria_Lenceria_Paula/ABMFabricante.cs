@@ -26,17 +26,26 @@ namespace Merceria_Lenceria_Paula
 
             // Carga los datos en la grilla para poder seleccionarlos
             wflFabricante x = new wflFabricante();
-            tablaFab.DataSource = x.ObtListFab();
+            DataTable dt = x.ObtListFab();
+            this.gvDatos.DataSource = dt;
 
             Cursor.Current = Cursors.Default;
-
         }
 
 
 
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void gvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            this.ObtListFab();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         

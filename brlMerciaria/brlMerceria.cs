@@ -2,7 +2,6 @@
 using System.Data;
 using System.Text;
 using System.Security.Cryptography;
-
 using dtlMerceria;
 
 namespace brlMerceria

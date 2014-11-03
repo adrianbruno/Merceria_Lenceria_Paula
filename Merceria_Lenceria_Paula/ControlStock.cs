@@ -1,7 +1,7 @@
 ﻿using System;
 
 using System.Windows.Forms;
-
+using System.Data;
 using wflMerceria;
 
 namespace Merceria_Lenceria_Paula
@@ -35,7 +35,7 @@ namespace Merceria_Lenceria_Paula
             // Realiza el update de los datos en STOCK
             wflGenerica obReg = new wflGenerica();
             obReg.UpdateDatosStock(txtCodigo.Text,
-                                   txtFabricante.Text,
+                                   cmboxFab.SelectedIndex,
                                    txtDescripcion.Text,
                                    txtPrecio.Text,
                                    txtCantidad.Text);
@@ -50,7 +50,7 @@ namespace Merceria_Lenceria_Paula
             // Realiza el insert de los datos en STOCK
             wflGenerica obReg = new wflGenerica();
             obReg.InsertDatosStock(txtCodigo.Text,
-                                   txtFabricante.Text,
+                                   cmboxFab.SelectedIndex,
                                    txtDescripcion.Text,
                                    txtPrecio.Text,
                                    txtCantidad.Text);
@@ -62,13 +62,15 @@ namespace Merceria_Lenceria_Paula
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             DataGridView gv = new DataGridView();
+            string _Desc = gvDatos.CurrentRow.Cells[1].Value.ToString();
+            int id = desc2id(_Desc); // revisar bien
 
             // Al hacer click en un valor los muestra en los text
-            txtCodigo.Text = gvDatos.CurrentRow.Cells[1].Value.ToString();
-            txtFabricante.Text = gvDatos.CurrentRow.Cells[2].Value.ToString();
-            txtDescripcion.Text = gvDatos.CurrentRow.Cells[3].Value.ToString();
-            txtPrecio.Text = gvDatos.CurrentRow.Cells[4].Value.ToString();
-            txtCantidad.Text = gvDatos.CurrentRow.Cells[5].Value.ToString();
+            txtCodigo.Text = gvDatos.CurrentRow.Cells[0].Value.ToString();
+            cmboxFab.SelectedIndex = id-1;
+            txtDescripcion.Text = gvDatos.CurrentRow.Cells[2].Value.ToString();
+            txtPrecio.Text = gvDatos.CurrentRow.Cells[3].Value.ToString();
+            txtCantidad.Text = gvDatos.CurrentRow.Cells[4].Value.ToString();
             btnBorrar.Enabled = true;
         }
 
@@ -87,7 +89,7 @@ namespace Merceria_Lenceria_Paula
             gvDatos.ClearSelection();
             gvDatos.CurrentCell = null;
             txtCodigo.Text = "";
-            txtFabricante.Text = "";
+            cmboxFab.SelectedIndex = -0;
             txtDescripcion.Text = "";
             txtPrecio.Text = "";
             txtCantidad.Text = "";
@@ -104,7 +106,7 @@ namespace Merceria_Lenceria_Paula
         {
          // Controla que TODOS los campos estén correctos
             if (txtCodigo.Text.Length > 0 &&
-                 txtFabricante.Text.Length > 0 &&
+                 cmboxFab.SelectedIndex > 0 &&
                  txtDescripcion.Text.Length > 0 &&
                  txtPrecio.Text.Length > 0 &&
                  txtCantidad.Text.Length > 0)
@@ -123,7 +125,7 @@ namespace Merceria_Lenceria_Paula
             {
                 txtPrecio.Text = String.Format("{0:0.00}", Convert.ToDecimal(txtPrecio.Text));
             }
-            //btnGuardar.Enabled = Todo_OK();
+            btnGuardar.Enabled = Todo_OK();
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -143,22 +145,22 @@ namespace Merceria_Lenceria_Paula
 
         private void txtCodigo_Leave(object sender, EventArgs e)
         {
-            //btnGuardar.Enabled = Todo_OK();
+            btnGuardar.Enabled = Todo_OK();
         }
 
         private void txtFabricante_Leave(object sender, EventArgs e)
         {
-            //btnGuardar.Enabled = Todo_OK();
+            btnGuardar.Enabled = Todo_OK();
         }
 
         private void txtDescripcion_Leave(object sender, EventArgs e)
         {
-            //btnGuardar.Enabled = Todo_OK();
+            btnGuardar.Enabled = Todo_OK();
         }
 
         private void txtCantidad_Leave(object sender, EventArgs e)
         {
-            //btnGuardar.Enabled = Todo_OK();
+            btnGuardar.Enabled = Todo_OK();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -247,6 +249,48 @@ namespace Merceria_Lenceria_Paula
             txtCodigo.Enabled = true;
             gvDatos.Enabled = false;
             Limpiar_Controles();
+            btnGuardar.Enabled = true;
+        }
+
+        private void gvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cmboxFab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        /*se carga solito con el datasourse por ahora
+         * public void CargaCmboxFab() {
+            wflFabricante x = new wflFabricante();
+            DataTable dt = x.ObtListFab();
+            
+            cmboxFab.DataSource = dt;
+            foreach (DataRow dr in dt.Rows)
+            {
+                cmboxFab.Items.Add(dr[1].ToString());
+            }
+        }
+        */
+        private void ControlStock_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'dsFab.fabricante' Puede moverla o quitarla según sea necesario.
+            this.fabricanteTableAdapter.Fill(this.dsFab.fabricante);
+        }
+
+        public int desc2id(string _Desc)
+        { 
+            wflFabricante x = new wflFabricante();
+            int _Id=x.desc2id(_Desc);
+            
+            MessageBox.Show("veo el id??"+_Id,
+                                  "Correcto",
+                                  MessageBoxButtons.OK,
+                                  MessageBoxIcon.Information,
+                                  MessageBoxDefaultButton.Button1);
+            return _Id;
         }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tablaFab = new System.Windows.Forms.DataGridView();
+            this.gvDatos = new System.Windows.Forms.DataGridView();
             this.grpGeneral = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnEliminarFab = new System.Windows.Forms.Button();
@@ -36,30 +36,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnNuevoFab = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaFab)).BeginInit();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDatos)).BeginInit();
             this.grpGeneral.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tablaFab
+            // gvDatos
             // 
-            this.tablaFab.AllowUserToAddRows = false;
-            this.tablaFab.AllowUserToDeleteRows = false;
-            this.tablaFab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tablaFab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tablaFab.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.descripcion});
-            this.tablaFab.Location = new System.Drawing.Point(1, 2);
-            this.tablaFab.MultiSelect = false;
-            this.tablaFab.Name = "tablaFab";
-            this.tablaFab.ReadOnly = true;
-            this.tablaFab.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaFab.Size = new System.Drawing.Size(331, 290);
-            this.tablaFab.TabIndex = 1;
-            this.tablaFab.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.gvDatos.AllowUserToAddRows = false;
+            this.gvDatos.AllowUserToDeleteRows = false;
+            this.gvDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.gvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvDatos.Location = new System.Drawing.Point(12, 24);
+            this.gvDatos.MultiSelect = false;
+            this.gvDatos.Name = "gvDatos";
+            this.gvDatos.ReadOnly = true;
+            this.gvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvDatos.Size = new System.Drawing.Size(331, 290);
+            this.gvDatos.TabIndex = 1;
+            this.gvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvDatos_CellContentClick);
             // 
             // grpGeneral
             // 
@@ -68,9 +65,9 @@
             this.grpGeneral.Controls.Add(this.txtNombre);
             this.grpGeneral.Enabled = false;
             this.grpGeneral.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.grpGeneral.Location = new System.Drawing.Point(338, 82);
+            this.grpGeneral.Location = new System.Drawing.Point(370, 82);
             this.grpGeneral.Name = "grpGeneral";
-            this.grpGeneral.Size = new System.Drawing.Size(427, 210);
+            this.grpGeneral.Size = new System.Drawing.Size(410, 210);
             this.grpGeneral.TabIndex = 12;
             this.grpGeneral.TabStop = false;
             // 
@@ -122,26 +119,34 @@
             // 
             // btnNuevoFab
             // 
-            this.btnNuevoFab.Location = new System.Drawing.Point(517, 15);
+            this.btnNuevoFab.Location = new System.Drawing.Point(535, 15);
             this.btnNuevoFab.Name = "btnNuevoFab";
             this.btnNuevoFab.Size = new System.Drawing.Size(120, 61);
             this.btnNuevoFab.TabIndex = 13;
             this.btnNuevoFab.Text = "Nuevo";
             this.btnNuevoFab.UseVisualStyleBackColor = true;
             // 
-            // id
+            // btnListar
             // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
+            this.btnListar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListar.Location = new System.Drawing.Point(21, 332);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(245, 51);
+            this.btnListar.TabIndex = 15;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
-            // descripcion
+            // btnCerrar
             // 
-            this.descripcion.HeaderText = "Nombre";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            this.descripcion.Width = 280;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Location = new System.Drawing.Point(535, 332);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(245, 51);
+            this.btnCerrar.TabIndex = 14;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // frmFabricante
             // 
@@ -149,13 +154,15 @@
             this.AccessibleName = "AbmFab";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 304);
+            this.ClientSize = new System.Drawing.Size(808, 395);
+            this.Controls.Add(this.btnListar);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnNuevoFab);
             this.Controls.Add(this.grpGeneral);
-            this.Controls.Add(this.tablaFab);
+            this.Controls.Add(this.gvDatos);
             this.Name = "frmFabricante";
             this.Text = "ABM FABRICANTES";
-            ((System.ComponentModel.ISupportInitialize)(this.tablaFab)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDatos)).EndInit();
             this.grpGeneral.ResumeLayout(false);
             this.grpGeneral.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -165,7 +172,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView tablaFab;
+        private System.Windows.Forms.DataGridView gvDatos;
         private System.Windows.Forms.GroupBox grpGeneral;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnEliminarFab;
@@ -173,7 +180,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnNuevoFab;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }
