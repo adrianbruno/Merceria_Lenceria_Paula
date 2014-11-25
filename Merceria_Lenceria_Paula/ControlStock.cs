@@ -68,7 +68,6 @@ namespace Merceria_Lenceria_Paula
             // Al hacer click en un valor los muestra en los text
             txtCodigo.Text = gvDatos.CurrentRow.Cells[0].Value.ToString();
             cmboxFab.SelectedIndex = id-1;
-            cmboxFab.Tag = id;
             txtDescripcion.Text = gvDatos.CurrentRow.Cells[2].Value.ToString();
             txtPrecio.Text = gvDatos.CurrentRow.Cells[3].Value.ToString();
             txtCantidad.Text = gvDatos.CurrentRow.Cells[4].Value.ToString();
@@ -278,7 +277,7 @@ namespace Merceria_Lenceria_Paula
         private void ControlStock_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'dsFab.fabricante' Puede moverla o quitarla según sea necesario.
-            //this.fabricanteTableAdapter.Fill(this.dsFab.fabricante);
+            this.fabricanteTableAdapter.Fill(this.dsFab.fabricante);
         }
 
         public int desc2id(string _Desc)
@@ -292,6 +291,16 @@ namespace Merceria_Lenceria_Paula
                                   MessageBoxIcon.Information,
                                   MessageBoxDefaultButton.Button1);
             return _Id;
+        }
+
+        private void ControlStock_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
