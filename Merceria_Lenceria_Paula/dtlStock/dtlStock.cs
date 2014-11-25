@@ -65,11 +65,7 @@ namespace dtlMerceria
 
                 cmd.CommandText = "sp_ins_item_stock";
                 cmd.Parameters.Add("@id_cod", SqlDbType.VarChar).Value = _Cod;
-<<<<<<< HEAD
-                cmd.Parameters.Add("@id_fabricante", SqlDbType.VarChar).Value = _Fab;
-=======
                 cmd.Parameters.Add("@id_fabricante", SqlDbType.Int).Value = _id_fab;
->>>>>>> 803e905e4e6b7f2c7c92cdc58540cf6a452228ff
                 cmd.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = _Desc;
                 cmd.Parameters.Add("@precio", SqlDbType.Decimal).Value = _Precio;
                 cmd.Parameters.Add("@cant_actual", SqlDbType.Int).Value = _Cant_Actual;
@@ -101,7 +97,6 @@ namespace dtlMerceria
         public DataTable ObtenerFabricantes_Full()
         {
 
-<<<<<<< HEAD
             conn.Open();
             using (SqlDataAdapter da = new SqlDataAdapter(
                    "SELECT * FROM fabricantes", conn))
@@ -111,7 +106,6 @@ namespace dtlMerceria
                 return tabla;
             }
         }
-=======
          public DataTable ObtenerStock_basico()
          {
              using (conn)
@@ -140,7 +134,6 @@ namespace dtlMerceria
          }
 
 
->>>>>>> 803e905e4e6b7f2c7c92cdc58540cf6a452228ff
         /// <summary>
         /// Obtiene los datos de Stock, de los campos principales y todos los registros (COMPLETOS)
         /// FUNCIONA - SE PASO A STORED PROCEDURE (Para cumplir con los basicos Insert, Select, Update, Delete segun el Ejemplo de Capas)
@@ -200,11 +193,7 @@ namespace dtlMerceria
          cmd.CommandText = "sp_upd_item_stock";
 
          cmd.Parameters.Add("@id_cod", SqlDbType.VarChar).Value = _Cod;
-<<<<<<< HEAD
-         cmd.Parameters.Add("@id_fabricante", SqlDbType.VarChar).Value = _Fab;
-=======
          cmd.Parameters.Add("@id_fabricante", SqlDbType.Int).Value = _id_fab;
->>>>>>> 803e905e4e6b7f2c7c92cdc58540cf6a452228ff
          cmd.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = _Desc;
          cmd.Parameters.Add("@precio", SqlDbType.Decimal).Value = _Precio;
          cmd.Parameters.Add("@cant_actual", SqlDbType.Int).Value = _Cant_Actual;

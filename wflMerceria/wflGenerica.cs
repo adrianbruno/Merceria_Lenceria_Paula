@@ -21,16 +21,12 @@ namespace wflMerceria
             brlGenerica obReg = new brlGenerica();
             return obReg.DatosStock_basico();
         }
-<<<<<<< HEAD:wrlMerceria/wrlGenerica.cs
         public DataTable ObtenerFabricantes()
         {
             brlGenerica obReg = new brlGenerica();
             return obReg.ObtenerFabricantes();
         }
-        public void UpdateDatosStock(string _cod, string _fab, string _desc, string _precio, string _cant)
-=======
         public void UpdateDatosStock(string _cod, int _id_fab, string _desc, string _precio, string _cant)
->>>>>>> 803e905e4e6b7f2c7c92cdc58540cf6a452228ff:wflMerceria/wflGenerica.cs
         {
 
             brlGenerica obReg = new brlGenerica();
