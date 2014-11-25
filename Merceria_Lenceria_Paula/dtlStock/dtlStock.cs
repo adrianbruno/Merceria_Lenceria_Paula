@@ -26,7 +26,27 @@ namespace dtlMerceria
                 da.Fill(tabla);
                 return tabla;
             }
-        }            
+        }
+        /// <summary>
+        /// Obtiene los ID de Stock
+        /// </summary>
+        public int Fab_Text_2_ID(string _Fab)
+        {
+            SqlCommand command = new SqlCommand("SELECT id FROM fabricantes where descripcion='" + _Fab + "'", conn);
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    return reader.GetInt32(0);
+                }
+            }
+            reader.Close();
+            return 0;
+
+        }          
         /// <summary>
         /// Realiza el INSERT de los datos en Stock
         /// </summary>
@@ -45,7 +65,11 @@ namespace dtlMerceria
 
                 cmd.CommandText = "sp_ins_item_stock";
                 cmd.Parameters.Add("@id_cod", SqlDbType.VarChar).Value = _Cod;
+<<<<<<< HEAD
+                cmd.Parameters.Add("@id_fabricante", SqlDbType.VarChar).Value = _Fab;
+=======
                 cmd.Parameters.Add("@id_fabricante", SqlDbType.Int).Value = _id_fab;
+>>>>>>> 803e905e4e6b7f2c7c92cdc58540cf6a452228ff
                 cmd.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = _Desc;
                 cmd.Parameters.Add("@precio", SqlDbType.Decimal).Value = _Precio;
                 cmd.Parameters.Add("@cant_actual", SqlDbType.Int).Value = _Cant_Actual;
@@ -56,7 +80,6 @@ namespace dtlMerceria
                 conn.Open();
 
                 reader = cmd.ExecuteReader();
-
                 conn.Close();
          }
 
@@ -75,7 +98,20 @@ namespace dtlMerceria
                     return tabla;
                }
         }
+        public DataTable ObtenerFabricantes_Full()
+        {
 
+<<<<<<< HEAD
+            conn.Open();
+            using (SqlDataAdapter da = new SqlDataAdapter(
+                   "SELECT * FROM fabricantes", conn))
+            {
+                DataTable tabla = new DataTable();
+                da.Fill(tabla);
+                return tabla;
+            }
+        }
+=======
          public DataTable ObtenerStock_basico()
          {
              using (conn)
@@ -104,6 +140,7 @@ namespace dtlMerceria
          }
 
 
+>>>>>>> 803e905e4e6b7f2c7c92cdc58540cf6a452228ff
         /// <summary>
         /// Obtiene los datos de Stock, de los campos principales y todos los registros (COMPLETOS)
         /// FUNCIONA - SE PASO A STORED PROCEDURE (Para cumplir con los basicos Insert, Select, Update, Delete segun el Ejemplo de Capas)
@@ -112,7 +149,11 @@ namespace dtlMerceria
         {
             conn.Open();
             using (SqlDataAdapter da = new SqlDataAdapter(
+<<<<<<< HEAD
+                   "exec sp_sel_stock_basico", conn))
+=======
                    "SELECT id_codigo, id_fabricante, descripcion, precio, cant_actual FROM stock", conn))
+>>>>>>> 803e905e4e6b7f2c7c92cdc58540cf6a452228ff
             {
                 DataTable tabla = new DataTable();
                 da.Fill(tabla);
@@ -159,7 +200,11 @@ namespace dtlMerceria
          cmd.CommandText = "sp_upd_item_stock";
 
          cmd.Parameters.Add("@id_cod", SqlDbType.VarChar).Value = _Cod;
+<<<<<<< HEAD
+         cmd.Parameters.Add("@id_fabricante", SqlDbType.VarChar).Value = _Fab;
+=======
          cmd.Parameters.Add("@id_fabricante", SqlDbType.Int).Value = _id_fab;
+>>>>>>> 803e905e4e6b7f2c7c92cdc58540cf6a452228ff
          cmd.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = _Desc;
          cmd.Parameters.Add("@precio", SqlDbType.Decimal).Value = _Precio;
          cmd.Parameters.Add("@cant_actual", SqlDbType.Int).Value = _Cant_Actual;

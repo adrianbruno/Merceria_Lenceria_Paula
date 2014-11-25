@@ -8,6 +8,12 @@ namespace brlMerceria
 {
     public class brlGenerica
     {
+        public int Fab_Text_2_id(string _Fab)
+        {
+            dtlStock obReg = new dtlStock();
+            return obReg.Fab_Text_2_ID(_Fab);
+        }
+
         public string CalculateMD5Hash(string input)
         {
             // step 1, calculate MD5 hash from input
@@ -32,7 +38,11 @@ namespace brlMerceria
           dtlStock obReg = new dtlStock();
           return obReg.ObtenerStock_basico();
       }
-
+      public DataTable ObtenerFabricantes()
+      {
+          dtlStock obReg = new dtlStock();
+          return obReg.ObtenerFabricantes_Full();
+      }
       /// <summary>
       /// Realiza el UPDATE de los datos en STOCK
       /// </summary>
