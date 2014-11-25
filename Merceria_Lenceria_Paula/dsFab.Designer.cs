@@ -279,7 +279,7 @@ namespace Merceria_Lenceria_Paula {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class fabricanteDataTable : global::System.Data.TypedTableBase<fabricanteRow> {
             
-            private global::System.Data.DataColumn columnId_fabricante;
+            private global::System.Data.DataColumn columnId;
             
             private global::System.Data.DataColumn columndescripcion;
             
@@ -318,9 +318,9 @@ namespace Merceria_Lenceria_Paula {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Id_fabricanteColumn {
+            public global::System.Data.DataColumn IdColumn {
                 get {
-                    return this.columnId_fabricante;
+                    return this.columnId;
                 }
             }
             
@@ -369,10 +369,10 @@ namespace Merceria_Lenceria_Paula {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public fabricanteRow AddfabricanteRow(int Id_fabricante, string descripcion) {
+            public fabricanteRow AddfabricanteRow(int Id, string descripcion) {
                 fabricanteRow rowfabricanteRow = ((fabricanteRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id_fabricante,
+                        Id,
                         descripcion};
                 rowfabricanteRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowfabricanteRow);
@@ -381,9 +381,9 @@ namespace Merceria_Lenceria_Paula {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public fabricanteRow FindById_fabricante(int Id_fabricante) {
+            public fabricanteRow FindById(int Id) {
                 return ((fabricanteRow)(this.Rows.Find(new object[] {
-                            Id_fabricante})));
+                            Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -403,21 +403,21 @@ namespace Merceria_Lenceria_Paula {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnId_fabricante = base.Columns["Id_fabricante"];
+                this.columnId = base.Columns["Id"];
                 this.columndescripcion = base.Columns["descripcion"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnId_fabricante = new global::System.Data.DataColumn("Id_fabricante", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId_fabricante);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
                 this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndescripcion);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnId_fabricante}, true));
-                this.columnId_fabricante.AllowDBNull = false;
-                this.columnId_fabricante.Unique = true;
+                                this.columnId}, true));
+                this.columnId.AllowDBNull = false;
+                this.columnId.Unique = true;
                 this.columndescripcion.MaxLength = 50;
             }
             
@@ -561,12 +561,12 @@ namespace Merceria_Lenceria_Paula {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Id_fabricante {
+            public int Id {
                 get {
-                    return ((int)(this[this.tablefabricante.Id_fabricanteColumn]));
+                    return ((int)(this[this.tablefabricante.IdColumn]));
                 }
                 set {
-                    this[this.tablefabricante.Id_fabricanteColumn] = value;
+                    this[this.tablefabricante.IdColumn] = value;
                 }
             }
             
@@ -758,7 +758,7 @@ namespace Merceria_Lenceria_Paula.dsFabTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "fabricante";
-            tableMapping.ColumnMappings.Add("Id_fabricante", "Id_fabricante");
+            tableMapping.ColumnMappings.Add("Id_fabricante", "Id");
             tableMapping.ColumnMappings.Add("descripcion", "descripcion");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -805,19 +805,6 @@ SELECT Id_fabricante, descripcion FROM fabricante WHERE (Id_fabricante = @Id_fab
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id_fabricante, descripcion FROM dbo.fabricante";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsFab.fabricanteDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -953,14 +940,6 @@ SELECT Id_fabricante, descripcion FROM fabricante WHERE (Id_fabricante = @Id_fab
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string descripcion, int Original_Id_fabricante, string Original_descripcion) {
-            return this.Update(Original_Id_fabricante, descripcion, Original_Id_fabricante, Original_descripcion);
         }
     }
     

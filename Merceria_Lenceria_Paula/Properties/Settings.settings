@@ -5,10 +5,10 @@
     <Setting Name="MerceriaLenceriaDBConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Merceria_DB\MerceriaLenceriaDB.mdf;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=(localdb)\Projects;Initial Catalog=MerceriaDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=USUARIO-PC\SQLEXPRESS;Database=Merceria_DB;User Id=sa;Password=asdf1234";</Value>
+      <Value Profile="(Default)">Data Source=(localdb)\Projects;Initial Catalog=MerceriaDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False</Value>
     </Setting>
   </Settings>
 </SettingsFile>
