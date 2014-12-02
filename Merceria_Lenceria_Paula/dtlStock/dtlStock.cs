@@ -11,7 +11,7 @@ namespace dtlMerceria
     public class dtlStock
     {
 
-        public SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDB"].ConnectionString);
+        public SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDBConnectionString"].ConnectionString);
 
         /// <summary>
         /// Obtiene los ID de Stock

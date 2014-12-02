@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
+
 using brlMerceria;
 
 namespace wflMerceria
@@ -16,6 +17,12 @@ namespace wflMerceria
         {
             brlFabricante x = new brlFabricante();
             return x.ObtListFab();
+        }
+
+        public Boolean DameTeta()
+        {
+            return true;
+
         }
         public int desc2id(string _Desc)
         {

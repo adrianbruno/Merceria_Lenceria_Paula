@@ -10,51 +10,122 @@ using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Security.Cryptography;
 using System.Text;
+using System.Configuration;
 
 public partial class _Default : System.Web.UI.Page
 {
-    protected void btnCreate_Click(object sender, EventArgs e)
+    string key = "ClaveUltraCompleta"; // tambien hay que cambiarla en el frmCambiarPass
+    SqlConnection sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDB"].ConnectionString);
+
+    public static string CreateSHAHash512(string Text, string Salt)
     {
-        //get the username
-        string UserName = txtUserName.Text;
+        /*
+         * Rutina para encriptar en SHA usando 512 bytes
+         */
+        System.Security.Cryptography.SHA512Managed HashTool = new System.Security.Cryptography.SHA512Managed();
+        Byte[] HashAsByte = System.Text.Encoding.UTF8.GetBytes(string.Concat(Text, Salt));
+        Byte[] EncryptedBytes = HashTool.ComputeHash(HashAsByte);
+        HashTool.Clear();
+        return Convert.ToBase64String(EncryptedBytes);
+    }
 
-        //create the MD5CryptoServiceProvider object we will use to encrypt the password
-        MD5CryptoServiceProvider md5Hasher = new MD5CryptoServiceProvider();
-        //create an array of bytes we will use to store the encrypted password
-        Byte[] hashedBytes;
-        //Create a UTF8Encoding object we will use to convert our password string to a byte array
-        UTF8Encoding encoder = new UTF8Encoding();
+    private int ExisteDatosSQL(string usr, string pass)
+    {
+        /*
+         * Rutina que devuelve un valor para saber en que estado se encuentra el usuario
+         * 0= todo OK
+         * 1= Error de contraseña
+         * 2= No definido
+         * 3= Cuenta del usuario bloqueada
+         * 4= Usuario inexistente
+         * Para los valores >0 las operaciones quedan logueadas en la tabla "logIntentoFallido"
+         */
+       
+        SqlCommand cmd = new SqlCommand();
+        SqlDataReader reader;
 
-        //encrypt the password and store it in the hashedBytes byte array
-        hashedBytes = md5Hasher.ComputeHash(encoder.GetBytes(txtPassword.Text));
-
-        //connect to our db
-        SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-
-        //sql command to add the user and password to the database
-        SqlCommand cmd = new SqlCommand("INSERT INTO Users(UserName, Password) VALUES (@UserName, @Password)", conn);
+        cmd.CommandText = "SELECT * FROM usuarios where login='" + usr + "'";
         cmd.CommandType = CommandType.Text;
+        cmd.Connection = sqlConnection1;
+        sqlConnection1.Open();
+        reader = cmd.ExecuteReader();
 
-        //add parameters to our sql query
-        cmd.Parameters.AddWithValue("@UserName", UserName);
-        cmd.Parameters.AddWithValue("@Password", hashedBytes);
-
-        using (conn)
+        if (reader.HasRows) // Existe usuario
         {
-            //open the connection
-            conn.Open();
-            //send the sql query to insert the data to our Users table
-            cmd.ExecuteNonQuery();
+            reader.Read();
+
+            if (Convert.ToInt16(reader.GetSqlValue(6).ToString()) == 0)
+            {
+                // Cuenta bloqueada
+                reader.Close();
+                sqlConnection1.Close();
+                return 3;
+            }
+
+            if (pass == reader.GetSqlValue(2).ToString())
+            {
+                // Todo BIEN, Password CORRECTA
+                //0=login,1=Pass,2=nombre,3=apellido,4=Nivel  
+                
+                // Para almacenar el usuario y el NIVEL
+                /*
+                _Usuario = reader.GetSqlValue(1).ToString();
+                _Nivel = reader.GetInt32(5);
+                */
+
+                reader.Close();
+                // Coloco el valor de intentos fallidos a CERO para resetear la cuenta del usuario
+                cmd.CommandText = "UPDATE usuarios set cant_intento_fallido=0 where login='" + usr + "'";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = sqlConnection1;
+                reader = cmd.ExecuteReader();
+
+                reader.Close();
+                sqlConnection1.Close();
+                return 0;
+            }
+            else
+            {
+                // Usuario correcto pero no la pass, incremento la cantidad de intentos
+                reader.Close();
+                sqlConnection1.Close();
+                //ErrorPass(usr);
+                return 1;
+            }
+
+        }
+        else
+        {
+            // No existe el usuario, de todas maneras dejo logueado que escribio, para futuros reportes
+            reader.Close();
+            sqlConnection1.Close();
+            return 4;
         }
 
     }
     protected void btnIngresar_Click(object sender, EventArgs e)
     {
         //connect to our db
-        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\v11.0;
-                                                                AttachDbFilename=|DataDirectory|\venta.mdf;
-                                                                Integrated Security=True");
+        //SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\venta.mdf; Integrated Security=True");
+        
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDBConnectionString"].ConnectionString);
 
+        string pass = CreateSHAHash512(txtPassword.Text.Trim(), key);
+
+        if (ExisteDatosSQL(txtUserName.Text.Trim(), pass) == 0)
+        {
+            //store the password from the db
+            Label1.Text = "Todo OK";
+            Response.Redirect("menuEdi_principal.html");
+        }
+        else
+        {
+            Response.Write("<script>window.alert('Contraseña incorrecta, intente nuevamente');</script>");
+            Label1.Enabled = true;
+            Label1.Text = "Contraseña o nombre de usuario incorrecto, intente nuevamente  !!!"; 
+        }
+
+        /*
         //sql command to add the user to the database
         SqlCommand cmd = new SqlCommand("SELECT * FROM usuarios WHERE login=@UserName and password=HashBytes('MD5',@Password)", conn);
         cmd.CommandType = CommandType.Text;
@@ -76,14 +147,16 @@ public partial class _Default : System.Web.UI.Page
             {
                 //store the password from the db
                 Label1.Text = "Todo OK";
-                Response.Redirect("principal.aspx");
+                Response.Redirect("menuEdi_principal.html");
             }
             else
             {
+                Response.Write("<script>window.alert('Contraseña incorrecta, intente nuevamente');</script>");
                 Label1.Enabled = true;
                 Label1.Text = "Contraseña o nombre de usuario incorrecto, intente nuevamente  !!!"; 
             }
         }
+         */
 
     }
     protected void btnSalir_Click(object sender, EventArgs e)

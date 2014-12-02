@@ -9,11 +9,11 @@
  
 <frameset cols="10%,90%" noresize  border="0" frameborder="0" y framespacing="0">
  
-  <frame name="lefty" src="a.aspx">
+  <frame name="lefty" src="a.aspx"/>
  
   <frameset rows="85%,20%">
-  <frame name="topy" src="b.aspx">
-  <frame name="bottomly" src="c.aspx">
+  <frame name="topy" src="b.aspx"/>
+  <frame name="bottomly" src="c.aspx"/>
   </frameset>
  
 </frameset>

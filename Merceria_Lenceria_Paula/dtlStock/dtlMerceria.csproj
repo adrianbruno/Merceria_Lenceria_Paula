@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dtlFabricante.cs" />
+    <Compile Include="dtlProvLoc.cs" />
     <Compile Include="dtlStock.cs" />
     <Compile Include="dtlVenta_usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

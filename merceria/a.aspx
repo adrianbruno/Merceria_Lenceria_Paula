@@ -15,7 +15,7 @@
 <body style="background-color: #FFCCFF; height: 423px; width: 112px;">
     <form id="form1" runat="server">
         <div class="auto-style1" style="font-family: Verdana; font-size: small">
-            <asp:ImageButton ID="imgVenta" runat="server" Height="91px" ImageAlign="Baseline" ImageUrl="~/imagenes/Button_Cyan.png" style="text-align: center" Width="94px" />
+            <asp:ImageButton ID="imgVenta" runat="server" Height="91px" ImageAlign="Baseline" ImageUrl="~/imagenes/Button_Cyan.png" OnClick="imgStock_Click" style="text-align: center" Width="94px" />
             <br />
             VENTA</div>
         <div class="auto-style1" style="font-family: Verdana; font-size: small">
@@ -23,7 +23,7 @@
             <br />
             STOCK</div>
         <div class="auto-style1" style="font-family: Verdana; font-size: small">
-            <asp:ImageButton ID="imgUsuarios" runat="server" Height="91px" ImageAlign="Baseline" ImageUrl="~/imagenes/Button_Red.png" style="text-align: center" Width="94px" />
+            <asp:ImageButton ID="imgUsuarios" runat="server" Height="91px" ImageAlign="Baseline" ImageUrl="~/imagenes/Button_Red.png" OnClick="imgStock_Click" style="text-align: center" Width="94px" />
             <br />
             USUARIOS</div>
     </form>

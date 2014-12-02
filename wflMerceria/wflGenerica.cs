@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text;
 using System.Data;
-
 using brlMerceria;
 
 namespace wflMerceria
@@ -21,6 +20,7 @@ namespace wflMerceria
             brlGenerica obReg = new brlGenerica();
             return obReg.DatosStock_basico();
         }
+
         public DataTable ObtenerFabricantes()
         {
             brlGenerica obReg = new brlGenerica();

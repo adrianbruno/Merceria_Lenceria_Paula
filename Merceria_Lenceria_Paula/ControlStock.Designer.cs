@@ -309,7 +309,6 @@
             this.Name = "ControlStock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta y Control de Stock";
-            this.Load += new System.EventHandler(this.ControlStock_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fabricanteBindingSource)).EndInit();

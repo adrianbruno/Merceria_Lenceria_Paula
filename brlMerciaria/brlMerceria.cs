@@ -38,6 +38,11 @@ namespace brlMerceria
           dtlStock obReg = new dtlStock();
           return obReg.ObtenerStock_basico();
       }
+      public DataTable DatosProvLoca()
+      {
+          dtlProvLoc obReg = new dtlProvLoc();
+          return obReg.ObtenerProvLoca();
+      }
       public DataTable ObtenerFabricantes()
       {
           dtlStock obReg = new dtlStock();
