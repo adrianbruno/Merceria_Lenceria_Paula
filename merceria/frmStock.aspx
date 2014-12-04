@@ -70,9 +70,13 @@
             width: 499px;
         }
         </style>
+    <script type="text/javascript">
+        function setHourGlass() {
+            document.body.style.cursor = 'wait';
+        }
+</script>
 </head>
-<body style="background-color: #FFCCFF; height: 811px; width: 854px;">
-
+<body  onbeforeunload="setHourglass();" onunload="setHourglass();" style="background-color: #FFCCFF; height: 811px; width: 854px;">
             <div class="auto-style31">
                 <strong style="text-align: center">ABM de PRODUCTOS</strong></div>
 
@@ -90,8 +94,6 @@
                     <td class="auto-style87">Fabricante</td>
                     <td class="auto-style88">
                         <asp:DropDownList ID="cmbFabricantes" runat="server" Font-Size="Large" Height="30px" 
-                            OnSelectedIndexChanged="cmbFabricantes_SelectedIndexChanged"
-                            AutoPostBack="True"
                             style="margin-top: 0px; text-align: right;" Width="248px">
                         </asp:DropDownList>
                     </td>

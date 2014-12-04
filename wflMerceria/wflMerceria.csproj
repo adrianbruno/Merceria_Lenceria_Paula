@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="wflusuario.cs" />
     <Compile Include="wflFabricante.cs" />
     <Compile Include="wflGenerica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

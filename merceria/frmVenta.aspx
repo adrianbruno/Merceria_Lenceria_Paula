@@ -99,7 +99,6 @@
   }  
 </script>
                         <asp:DropDownList ID="cmbCodigo" runat="server" Font-Size="Large" Height="30px" 
-                            OnSelectedIndexChanged="cmbFabricantes_SelectedIndexChanged"
                             AutoPostBack="True"
                             style="margin-top: 0px" Width="140px">
                         </asp:DropDownList>
@@ -130,7 +129,6 @@
                     <td class="auto-style27">Cantidad </td>
                     <td class="auto-style28">
                         <asp:DropDownList ID="cmbCant" runat="server" Font-Size="Large" Height="30px" 
-                            OnSelectedIndexChanged="cmbFabricantes_SelectedIndexChanged"
                             AutoPostBack="True"
                             style="margin-top: 0px" Width="140px">
                         </asp:DropDownList>

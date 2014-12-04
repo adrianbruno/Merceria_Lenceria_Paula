@@ -21,7 +21,7 @@
         }
     </style>
     </head>
-    <body style="height: 373px; background-color: #99CCFF">
+    <body style="height: 373px; background-color: #FFCCFF">
         
         <form id="form1" runat="server">
             <div id="principal" style="height: 357px; width: 371px; text-align: center; margin-left: 220px">

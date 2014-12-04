@@ -19,11 +19,7 @@ namespace wflMerceria
             return x.ObtListFab();
         }
 
-        public Boolean DameTeta()
-        {
-            return true;
 
-        }
         public int desc2id(string _Desc)
         {
             brlFabricante x = new brlFabricante();

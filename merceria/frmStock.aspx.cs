@@ -176,12 +176,7 @@ public partial class frmStock : System.Web.UI.Page
         }
     }
 
-    protected void cmbFabricantes_SelectedIndexChanged(object sender, EventArgs e)
-    {
-    }
-    protected void txtCodigo_TextChanged(object sender, EventArgs e)
-    {
-    }
+
     protected void gvDatos_RowDataBound(object o, GridViewRowEventArgs e)
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
@@ -195,8 +190,5 @@ public partial class frmStock : System.Web.UI.Page
     {
         Response.Redirect("./b.aspx");
     }
-    protected void txtCodigo_TextChanged1(object sender, EventArgs e)
-    {
 
-    }
 }
