@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Merceria_Lenceria_Paula", "Merceria_Lenceria_Paula.csproj", "{54F008FA-50A4-4979-A8D1-328DE8C6033B}"
 EndProject
@@ -18,6 +18,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "merceria(1)", "http://local
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{01d54428-7a21-410d-a174-c3e95680297d}|wrlMerceria.dll;{0051E92E-2049-4DAF-81C9-D751C2EF6CE5}|brlMerceria.dll;{A78A18D8-96C6-4788-A242-D59E4306D704}|dtlStock.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_2166"
 		Debug.AspNetCompiler.PhysicalPath = "..\merceria\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2166\"

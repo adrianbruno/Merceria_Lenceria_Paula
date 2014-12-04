@@ -12,9 +12,9 @@ public partial class frmProvincias : System.Web.UI.Page
     private void CargarDatos()
     {
         // Carga los datos en la grilla para poder seleccionarlos
-        wflFabricante obReg = new wflFabricante();
-        gvDatos.DataSource = obReg.ObtListFab();
-        gvDatos.DataBind();
+        wflusuario obReg = new wflusuario();
+        gvDato.DataSource = obReg.ObtenerProvLoca();
+        gvDato.DataBind();
     }
     protected void Page_Load(object sender, EventArgs e)
     {

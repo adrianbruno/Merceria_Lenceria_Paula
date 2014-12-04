@@ -26,8 +26,8 @@ namespace Merceria_Lenceria_Paula.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\Projects;Initial Catalog=MerceriaDB;Integrated Security=Tru" +
-            "e;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\MerceriaDB.mdf;Integ" +
+            "rated Security=True")]
         public string MerceriaLenceriaDBConnectionString {
             get {
                 return ((string)(this["MerceriaLenceriaDBConnectionString"]));

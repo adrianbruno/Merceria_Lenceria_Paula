@@ -13,8 +13,8 @@ namespace dtlMerceria
 {
     public class dtlProvLoc
     {
-        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDB"].ConnectionString);
-
+        public SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDBConnectionString"].ConnectionString);
+        
         /// <summary>
         /// RECUPERA un registro según el id proporcionado, tabla fabricantes
         /// </summary>   
@@ -30,7 +30,8 @@ namespace dtlMerceria
                     conn.Open();
 
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "sp_sel_loc";
+                    cmd.CommandText = "sp_sel_fabricante";
+                    //cmd.CommandText = "sp_sel_loc";
 
                     DataTable tabla = new DataTable();
                     SqlDataAdapter da = new SqlDataAdapter();

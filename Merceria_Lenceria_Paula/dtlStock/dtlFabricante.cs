@@ -14,7 +14,7 @@ namespace dtlMerceria
 {
     public class dtlFabricante
     {
-        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDB"].ConnectionString);
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDBConnectionString"].ConnectionString);
 
         /// <summary>
         /// RECUPERA un registro según el id proporcionado, tabla fabricantes

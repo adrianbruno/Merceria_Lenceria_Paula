@@ -7,9 +7,10 @@ namespace wflMerceria
 {
     public class wflusuario
     {
-        public Boolean DameTeta()
+        public DataTable ObtenerProvLoca()
         {
-            return true;
+            brlGenerica obReg = new brlGenerica();
+            return obReg.DatosProvLoca();
 
         }
     }

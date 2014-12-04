@@ -9,7 +9,7 @@ namespace dtlMerceria
 {
     public class dtlVenta_usuario
     {
-        public SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDB"].ConnectionString);
+        public SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDBConnectionString"].ConnectionString);
 
         public void CargarDatosVentaPrevia(string _usuario)
         {

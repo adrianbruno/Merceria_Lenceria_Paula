@@ -15,7 +15,7 @@ using System.Configuration;
 public partial class _Default : System.Web.UI.Page
 {
     string key = "ClaveUltraCompleta"; // tambien hay que cambiarla en el frmCambiarPass
-    SqlConnection sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDB"].ConnectionString);
+    SqlConnection sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["MerceriaDBConnectionString"].ConnectionString);
 
     public static string CreateSHAHash512(string Text, string Salt)
     {
